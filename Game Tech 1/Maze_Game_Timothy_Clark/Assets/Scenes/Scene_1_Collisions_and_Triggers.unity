@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 793622846}
   - component: {fileID: 793622845}
   m_Layer: 0
-  m_Name: whiteStarS
+  m_Name: Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
