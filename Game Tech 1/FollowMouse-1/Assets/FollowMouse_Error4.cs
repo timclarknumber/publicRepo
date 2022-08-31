@@ -4,13 +4,6 @@ using System.Collections;
 public class FollowMouse_Error4 : MonoBehaviour 
 {
 
-	GameObject player;
-
-	void start()
-	{
-		player = GameObject.Find ("Player");
-	}
-
 	void Update () 
 	{
 		Follow ();
@@ -25,6 +18,6 @@ public class FollowMouse_Error4 : MonoBehaviour
 		//set the z of the player to 0
 		adjustedPosition.z = 0f;
 		//reposition the player
-		player.transform.position = adjustedPosition;
+		transform.position = adjustedPosition;
 	}
 }
