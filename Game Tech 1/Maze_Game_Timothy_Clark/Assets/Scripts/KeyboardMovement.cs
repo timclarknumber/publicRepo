@@ -23,25 +23,26 @@ public class KeyboardMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        //rb.AddForce (new Vector2 (xMove, yMove) * speed);
-        if (yMove > 0)
+        //rb.AddForce (new Vector2 (xMove, yMove) * speed); <- previous code, saved just in case.
+        
+        if (yMove > 0) //checks if the player is trying to move up with their inputs
         {
-            if (playerVelocity.y < speed)
+            if (playerVelocity.y < speed) //caps the speed of the player's movement
             {
-                playerVelocity += new Vector2(0.0f, speed);
+                playerVelocity += new Vector2(0.0f, speed); //when the player's velocity updates, it will be set to move up at the speed of 'speed'
             }
-        } else if (yMove < 0)
+        } else if (yMove < 0) //checks if the player is trying to move down
         {
-            if (playerVelocity.y > -speed)
+            if (rb.velocity.y > -speed) //caps speed
             {
-                playerVelocity -= new Vector2(0.0f, speed);
+                playerVelocity -= new Vector2(0.0f, speed); //when the player's velocity updates, it will be set to move down at the speed of 'speed'
             }
-        } else
+        } else //if the player isn't trying to move up or down with their inputs, do the following
         {
-            playerVelocity.y = 0.0f;
+            playerVelocity.y = 0.0f; //set the player's y velocity to 0 when the velocity updates
         }
-
-        if (xMove > 0)
+        //the following code is a copy paste of the previous 16 lines but configured for the x value of the player's velocity, not the y value
+        if (xMove > 0) 
         {
             if (playerVelocity.x < speed)
             {
@@ -57,12 +58,12 @@ public class KeyboardMovement : MonoBehaviour
         {
             playerVelocity.x = 0.0f;
         }
+        rb.velocity = playerVelocity;
     }
 
     void FixedUpdate()
     {
-        CheckInput();
-        MovePlayer();
-        rb.velocity = playerVelocity;
+        CheckInput(); //see what the player's inputs are
+        MovePlayer(); //move the player
     }
 }
