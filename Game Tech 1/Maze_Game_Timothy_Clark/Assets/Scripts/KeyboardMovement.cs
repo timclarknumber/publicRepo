@@ -17,8 +17,8 @@ public class KeyboardMovement : MonoBehaviour
 
     void CheckInput()
     {
-        xMove = Input.GetAxis ("Horizontal");
-        yMove = Input.GetAxis ("Vertical");
+        xMove = Input.GetAxisRaw ("Horizontal");
+        yMove = Input.GetAxisRaw ("Vertical");
     }
 
     void MovePlayer()
@@ -61,7 +61,7 @@ public class KeyboardMovement : MonoBehaviour
         rb.velocity = playerVelocity; //update the player's velocity to match the variable Vector2 'playerVelocity'
     }
 
-    void FixedUpdate()
+    void Update()
     {
         CheckInput(); //see what the player's inputs are
         MovePlayer(); //move the player
