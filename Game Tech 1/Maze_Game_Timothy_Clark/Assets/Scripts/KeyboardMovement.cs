@@ -24,7 +24,7 @@ public class KeyboardMovement : MonoBehaviour
     void MovePlayer()
     {
         //rb.AddForce (new Vector2 (xMove, yMove) * speed); <- previous code, saved just in case.
-        
+
         if (yMove > 0) //checks if the player is trying to move up with their inputs
         {
             if (playerVelocity.y < speed) //caps the speed of the player's movement
@@ -58,7 +58,7 @@ public class KeyboardMovement : MonoBehaviour
         {
             playerVelocity.x = 0.0f;
         }
-        rb.velocity = playerVelocity;
+        rb.velocity = playerVelocity; //update the player's velocity to match the variable Vector2 'playerVelocity'
     }
 
     void FixedUpdate()
