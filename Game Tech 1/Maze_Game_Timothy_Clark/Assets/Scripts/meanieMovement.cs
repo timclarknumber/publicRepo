@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meanieMovement : MonoBehaviour
+public class MeanieMovement : MonoBehaviour
 {
     public bool meanieHorV; //false is Horizontal, true is Vertical
     public float xExtentRight; //farthest extent to the right the meanie will go (global pos)
