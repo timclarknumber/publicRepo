@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TriggerScript : MonoBehaviour
 {
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("OnTriggerExit2D");
+        Debug.Log("OnTriggerEnter2D");
     }
 
     void OnTriggerExit2D(Collider2D collider)
