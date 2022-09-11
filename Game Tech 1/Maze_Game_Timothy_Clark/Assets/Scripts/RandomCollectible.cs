@@ -7,10 +7,10 @@ public class RandomCollectible : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        RepositionCollectible();
+        GetScoreKillObject();
     }
 
-    void RepositionCollectible()
+    void GetScoreKillObject()
     {
         Destroy(gameObject);
         GameObject.Find ("Score_Canvas").GetComponent<ScoreScript> ().AddScore ();
