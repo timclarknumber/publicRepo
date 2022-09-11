@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c4b3a2eaff6aa4998a9f55a2138263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Game_Scene
+  sceneName: Scene_Tutorial
 --- !u!1 &1080639278
 GameObject:
   m_ObjectHideFlags: 0

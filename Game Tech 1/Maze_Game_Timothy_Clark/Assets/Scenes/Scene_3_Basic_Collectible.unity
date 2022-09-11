@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1883262310508118324, guid: 50a3ccd36e8a9b849926ec9e7faf8b41, type: 3}
       propertyPath: xExtentLeft
-      value: -30
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 1883262310508118324, guid: 50a3ccd36e8a9b849926ec9e7faf8b41, type: 3}
       propertyPath: xExtentRight
@@ -11065,7 +11065,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1883262310508118324, guid: 50a3ccd36e8a9b849926ec9e7faf8b41, type: 3}
       propertyPath: xExtentLeft
-      value: -30
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 1883262310508118324, guid: 50a3ccd36e8a9b849926ec9e7faf8b41, type: 3}
       propertyPath: xExtentRight
