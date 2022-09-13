@@ -9752,7 +9752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Lose_Scene
-  timeLeft: 300
+  timeLeft: 150
   timerText: {fileID: 1640785990}
 --- !u!1001 &1487306014
 PrefabInstance:

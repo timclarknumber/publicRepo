@@ -20,11 +20,17 @@ public class PauseGame : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pausedOrNot = true;
-            } else
+            }
+            else
             {
                 Time.timeScale = 1;
                 pausedOrNot = false;
             } //This method based on the method taught at https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/ but there is some variation.
+        }
+
+        if (Input.GetKeyDown("tab"))
+        {
+            Destroy(gameObject);
         }
     }
 }
