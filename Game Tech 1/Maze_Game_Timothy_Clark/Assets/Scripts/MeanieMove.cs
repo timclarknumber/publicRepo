@@ -19,8 +19,7 @@ public class MeanieMove : MonoBehaviour
         {
             if (newPosition.y < yExtentUp) //meanie is not yet past farthest extent upward
             {
-                newPosition.y += meanieSpeed; //meanie moves up
-                Debug.Log("meanie is moving up");
+                newPosition.y += meanieSpeed * Time.deltaTime; //meanie moves up
             }
             else //meanie is past farthest extent upward
             {
@@ -31,8 +30,7 @@ public class MeanieMove : MonoBehaviour
         {
             if (newPosition.y > yExtentDown) //meanie is not yet past farthest extent downard
             {
-                newPosition.y -= meanieSpeed; //meanie moves down
-                Debug.Log("meanie is moving down");
+                newPosition.y -= meanieSpeed * Time.deltaTime; //meanie moves down
             }
             else //meanie is past farthest extent downward;
             {
@@ -47,8 +45,7 @@ public class MeanieMove : MonoBehaviour
         {
             if (newPosition.x < xExtentRight) //meanie is not yet past farthest extent to the right
             {
-                newPosition.x += meanieSpeed; //meanie moves to the right
-                Debug.Log("meanie is moving right");
+                newPosition.x += meanieSpeed * Time.deltaTime; //meanie moves to the right
             }
             else //meanie is past farthest extent to the right
             {
@@ -59,8 +56,7 @@ public class MeanieMove : MonoBehaviour
         {
             if (newPosition.x > xExtentLeft) //meanie is not yet past farthest extent downard
             {
-                newPosition.x -= meanieSpeed; //meanie moves left
-                Debug.Log("meanie is moving left");
+                newPosition.x -= meanieSpeed * Time.deltaTime; //meanie moves left
             }
             else //meanie is past farthest extent to the left;
             {

@@ -143,4 +143,4 @@ MonoBehaviour:
   xExtentLeft: 0
   yExtentUp: 0
   yExtentDown: 0
-  meanieSpeed: 0.01
+  meanieSpeed: 5
