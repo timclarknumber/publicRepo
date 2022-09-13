@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script moves the object the script is attached to either horizontally or vertically within the bounds of two extents (two per direction, totaling four) at a speed subject to Time.deltaTime
+//this script utilizes Time.deltaTime so the speed of the objects moved by this script is not subject to the performance of the machine this program is running on.
+//vv = 'vice versa'
+//gp = 'global position'
+
 public class MeanieMove : MonoBehaviour
 {
     public bool meanieHorV; //false is Horizontal, true is Vertical
-    public float xExtentRight; //farthest extent to the right the meanie will go (global pos)
-    public float xExtentLeft; //farthest extent to the left the meanie will go (global pos)
-    public float yExtentUp; //farthest extent up the meanie will go (global pos)
-    public float yExtentDown; //farthest extent down the meanie will go (global pos)
+    public float xExtentRight; //farthest extent to the right the meanie will go (gp)
+    public float xExtentLeft; //farthest extent to the left the meanie will go (gp)
+    public float yExtentUp; //farthest extent up the meanie will go (gp)
+    public float yExtentDown; //farthest extent down the meanie will go (gp)
     public float meanieSpeed; //speed meanie travels
     bool forwardOrBackward = true; //whether the meanie is currently going forward or backward, true is forward & vv, forward for H is right & vv, forward for V is up & vv
     Vector3 newPosition = new Vector3(0.0f, 0.0f, 0.0f);

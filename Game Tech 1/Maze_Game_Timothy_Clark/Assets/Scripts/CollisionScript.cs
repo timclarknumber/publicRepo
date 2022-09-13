@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this is a debugging script, not used in game (or shouldnt be [but if it is, not big deal])
+
 public class CollisionScript : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)

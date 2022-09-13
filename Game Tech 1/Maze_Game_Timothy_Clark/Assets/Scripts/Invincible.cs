@@ -20,6 +20,6 @@ public class Invincible : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject); //dont destroy this object when loading a scene (makes it so the object stays between scenes)
     }
 }

@@ -17,7 +17,7 @@ public class ScoreScript : MonoBehaviour
 
     public void AddScore()
     {
-        score++;
-        scoreText.text = score.ToString ();
+        score++; //add score
+        scoreText.text = score.ToString (); //make the score int into a string so it can be displayed
     }
 }

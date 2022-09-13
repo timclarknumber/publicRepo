@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this script moves the object with this script attached using the keyboard. Usually this is the player.
+
 public class KeyboardMovement : MonoBehaviour
 {
     float xMove = 0f;
@@ -23,7 +25,7 @@ public class KeyboardMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        //rb.AddForce (new Vector2 (xMove, yMove) * speed); <- previous code, saved just in case.
+        //rb.AddForce (new Vector2 (xMove, yMove) * speed); <- old code, saved just in case.
 
         if (yMove > 0) //checks if the player is trying to move up with their inputs
         {
@@ -41,7 +43,7 @@ public class KeyboardMovement : MonoBehaviour
         {
             playerVelocity.y = 0.0f; //set the player's y velocity to 0 when the velocity updates
         }
-        //the following code is a copy paste of the previous 16 lines but configured for the x value of the player's velocity, not the y value
+        //the following code is a copy paste of the previous 16 lines but configured for the x value of the player's velocity, instead of the y value
         if (xMove > 0) 
         {
             if (playerVelocity.x < speed)
