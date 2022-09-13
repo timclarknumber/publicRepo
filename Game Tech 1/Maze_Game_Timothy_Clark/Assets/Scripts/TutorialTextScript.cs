@@ -40,7 +40,7 @@ public class TutorialTextScript : MonoBehaviour
             tutorialText.text = "This is a checkpoint, if you touch it, you will start respawning from this point."; //update the tutorial text
         } else if (thePlayer.transform.position.x >= 120 && thePlayer.transform.position.x < 140)//is the player less than 140 but more than 120 gp in pos?
         {
-            tutorialText.text = "Remember you can also pause the game with space at any time, restart the current level with r, or restart the game with tab"; //update the tutorial text
+            tutorialText.text = "Remember you can also pause the game with space at any time, restart the level with r, or restart game with tab"; //update the tutorial text
         }else if (thePlayer.transform.position.x >= 140 && thePlayer.transform.position.x < 160)//is the player less than 160 but more than 140 gp in pos?
         {
             tutorialText.text = "This is the exit, by touching it you will proceed to the next level. Good luck!"; //update the tutorial text
