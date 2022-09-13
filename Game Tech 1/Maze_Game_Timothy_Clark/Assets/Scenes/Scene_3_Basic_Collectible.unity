@@ -1996,7 +1996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101, y: -5}
+  m_AnchoredPosition: {x: 67.9, y: -5}
   m_SizeDelta: {x: 78.446, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395774147
@@ -3581,7 +3581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -0.0000071526}
+  m_AnchoredPosition: {x: 400, y: -4.8}
   m_SizeDelta: {x: 136, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607071068
@@ -9649,7 +9649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Lose_Scene
-  timeLeft: 5
+  timeLeft: 300
   timerText: {fileID: 1640785990}
 --- !u!1001 &1487306014
 PrefabInstance:
@@ -10930,7 +10930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.2200265, y: -5.0000067}
+  m_AnchoredPosition: {x: -22.7, y: -2.6}
   m_SizeDelta: {x: 136, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799012242
@@ -10953,7 +10953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SCORE
+  m_text: 'Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12318,7 +12318,6 @@ GameObject:
   - component: {fileID: 2037771236}
   - component: {fileID: 2037771240}
   - component: {fileID: 2037771239}
-  - component: {fileID: 2037771241}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -12461,18 +12460,6 @@ PolygonCollider2D:
       - {x: 0.64, y: -0.64}
       - {x: 0.64, y: -0.59999996}
       - {x: 0.29, y: 0.11}
---- !u!114 &2037771241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037771235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07dcb929e9fd7dc408d5cab25627c258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2039785169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13417,6 +13404,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1640785990}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerTitle
+      value: 
+      objectReference: {fileID: 607071068}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: scoreScript
+      value: 
+      objectReference: {fileID: 1486861421}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerScript
+      value: 
+      objectReference: {fileID: 1486861427}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
 --- !u!1001 &7029201811065220770

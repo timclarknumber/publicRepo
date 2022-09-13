@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene_3_Basic_Collectible.unity
     guid: 513f990ae7ba49d4bb4d46ad053832f9
   - enabled: 1
+    path: Assets/Scenes/Lose_Scene.unity
+    guid: d631568063544f849922f5704d724143
+  - enabled: 1
     path: Assets/Scenes/End_Scene.unity
     guid: cb045a10748f36f408ff17a2b314fa14
   m_configObjects: {}

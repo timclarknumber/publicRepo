@@ -20,4 +20,10 @@ public class ScoreScript : MonoBehaviour
         score++; //add score
         scoreText.text = score.ToString (); //make the score int into a string so it can be displayed
     }
+
+    public void AddTimeToScore(int timeScore)
+    {
+        score += timeScore;
+        scoreText.text = score.ToString();
+    }
 }
