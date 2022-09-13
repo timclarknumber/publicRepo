@@ -21,9 +21,9 @@ public class ScoreScript : MonoBehaviour
         scoreText.text = score.ToString (); //make the score int into a string so it can be displayed
     }
 
-    public void AddTimeToScore(int timeScore)
+    public void AddTimeToScore(int timeScore) //this function exists to add the remaining time to the score, usually when the game level ends
     {
-        score += timeScore;
-        scoreText.text = score.ToString();
+        score += timeScore; //the parameter which is a stand in for how much time is remaining to the score
+        scoreText.text = score.ToString(); //make the score into a string so it can be displayed
     }
 }

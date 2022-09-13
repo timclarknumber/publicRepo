@@ -24,12 +24,12 @@ public class LocalCheckpoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) //when something (usually the player) touches this object
     {
-        SendPosKillCheckpoint();
+        SendPosKillCheckpoint(); //this function call cahnages where the current checkpoint is located, it changes where the player will start being sent by meanies/'respawning'
     }
 
     void SendPosKillCheckpoint()
     {
-        currentCheckpoint.currentPosForCheck = localCheckPos;
+        currentCheckpoint.currentPosForCheck = localCheckPos; //send the current position to the checkpoint manager and have it save the current checkpoint as this object's position
         Destroy(gameObject); //destroy this object
     }
 }

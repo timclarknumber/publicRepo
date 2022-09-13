@@ -26,7 +26,7 @@ public class SceneSwitch : MonoBehaviour
         {
             if (Input.GetMouseButtonDown (0)) //check if the player (ie the user, not the object) has clicked
             {
-                Destroy(canvas);
+                Destroy(canvas); //get rid of the score UI object or there will be multiple of it at once, which is bad
                 //Change the scene name depending on which script you are on.
                 //Note that this will require that each SceneManager has a string.
                 //typed into the Unity Inspector sceneName.

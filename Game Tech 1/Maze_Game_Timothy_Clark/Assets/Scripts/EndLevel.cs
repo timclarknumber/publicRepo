@@ -23,14 +23,14 @@ public class EndLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeHolder = timerScript.timeLeft;
+        timeHolder = timerScript.timeLeft; //make sure the value used in the function call below as a parameter is updating to the current time left
     }
 
     void OnTriggerEnter2D(Collider2D collider) //something (usually the player) touches this object
     {
-        scoreScript.AddTimeToScore((int)timeHolder);
-        Destroy(timerText);
-        Destroy(timerTitle);
+        scoreScript.AddTimeToScore((int)timeHolder); //this calls a function in another script which adds time to the score with the time as a parameter
+        Destroy(timerText); //get rid of the timer text
+        Destroy(timerTitle); //get rid of the timer title
         SceneManager.LoadScene(sceneName); //go to the specified scene
 
     }

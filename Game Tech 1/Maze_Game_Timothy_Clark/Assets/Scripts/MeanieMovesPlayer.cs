@@ -21,13 +21,14 @@ public class MeanieMovesPlayer : MonoBehaviour
     void Start()
     {
         thePlayer = GameObject.Find("Player"); //define thePlayer as the Player gameObject
-        checkpointManager = GameObject.Find("CheckpointManager");
-        currentCheckpoint = checkpointManager.GetComponent<CurrentCheckpoint>();
+        checkpointManager = GameObject.Find("CheckpointManager"); //define checkpointManager as the CheckpointMAnager gameObject
+        currentCheckpoint = checkpointManager.GetComponent<CurrentCheckpoint>(); //define currentCheckpoint as the CurrentCheckpoint script
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerPlace = currentCheckpoint.currentPosForCheck;
+        playerPlace = currentCheckpoint.currentPosForCheck; //always be checking to see if the current checkpoint has changed
+        //update where the meanie will send the player (where the player respawns) if the player touches a meanie
     }
 }
