@@ -9,10 +9,11 @@ public class GameAndLevelRestart : MonoBehaviour
 {
     public string firstScene;
     public string currentScene;
+    public GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas = GameObject.Find("Score_Canvas");
     }
 
     // Update is called once per frame
@@ -21,10 +22,12 @@ public class GameAndLevelRestart : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab)) //player pressed tab
         {
             SceneManager.LoadScene(firstScene); //load the first scene
+            Destroy(canvas);
         }
         if (Input.GetKeyDown("r")) //player pressed r
         {
             SceneManager.LoadScene(currentScene); //reload current scene
+            Destroy(canvas);
         }
         if (Input.GetKey("escape")) //player pressed escape
         {
