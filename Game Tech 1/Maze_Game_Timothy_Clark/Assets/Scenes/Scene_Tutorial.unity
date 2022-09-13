@@ -1367,6 +1367,22 @@ PrefabInstance:
       propertyPath: sceneName
       value: Scene_3_Basic_Collectible
       objectReference: {fileID: 0}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1781299266}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerTitle
+      value: 
+      objectReference: {fileID: 476628500}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: scoreScript
+      value: 
+      objectReference: {fileID: 1019025385}
+    - target: {fileID: 3200108106583228611, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
+      propertyPath: timerScript
+      value: 
+      objectReference: {fileID: 1019025390}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3cf30410c6dba343be50e97b869f4e7, type: 3}
 --- !u!1001 &949977719
