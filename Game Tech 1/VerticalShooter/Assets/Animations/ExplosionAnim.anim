@@ -420,9 +420,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: Remove()
+    functionName: Remove
     data: 
-    objectReferenceParameter: {fileID: 5671239662360516890, guid: beca7bab5fb76a34cba622f5aa228632, type: 3}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
