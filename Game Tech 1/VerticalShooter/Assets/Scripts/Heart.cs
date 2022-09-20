@@ -20,13 +20,12 @@ public class Heart : MonoBehaviour
         SetSprite();
     }
 
-    [ContextMenu("Damage")] //Allow Damage() function to be visible in the inspector
-    public void Damage() //A quick function to cause damage...
+    public void Damage(int damage) //Overload of Damage to take a damage int parameter
     {
 
         if (currentHealth > 0)
         {
-            currentHealth--;
+            currentHealth -= damage + 1;
             SetSprite();
         }
         if (currentHealth == 0)

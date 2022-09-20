@@ -8,6 +8,6 @@ using UnityEngine;
 
 public static class Health
 {
-    public static int curentPlayerHealth = 4;
+    public static int currentPlayerHealth = 4;
     public static int maxPlayerHealth = 4;
 }
