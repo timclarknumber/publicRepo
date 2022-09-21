@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1398762190712784390}
   - component: {fileID: 4342134255267659270}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: LaserCurvedLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,10 +151,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserMovesAt: 500
-  laserLife: 300
-  curveStrength: 1
+  laserLife: 250
   curveShotRight: 0
-  curveShotLeft: 0
+  curveShotLeft: 1
 --- !u!82 &4342134255267659270
 AudioSource:
   m_ObjectHideFlags: 0

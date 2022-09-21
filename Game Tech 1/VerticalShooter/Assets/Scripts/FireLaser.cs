@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireLaser : MonoBehaviour
 {
     public GameObject laserPrefab;
+    public GameObject laserRightPrefab;
+    public GameObject laserLeftPrefab;
     Transform laserSpawn;
     // Start is called before the first frame update
     void Start()
@@ -20,14 +22,30 @@ public class FireLaser : MonoBehaviour
 
     void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            Fire();
+            FireStraight();
+        } else if (Input.GetKeyDown(KeyCode.L))
+        {
+            FireRight();
+        } else if (Input.GetKeyDown(KeyCode.J))
+        {
+            FireLeft();
         }
     }
 
-    void Fire()
+    void FireStraight()
     {
         GameObject laser = Instantiate(laserPrefab, laserSpawn.position, laserSpawn.rotation) as GameObject;
+    }
+
+    void FireRight()
+    {
+        GameObject laser = Instantiate(laserRightPrefab, laserSpawn.position, laserSpawn.rotation) as GameObject;
+    }
+
+    void FireLeft()
+    {
+        GameObject laser = Instantiate(laserLeftPrefab, laserSpawn.position, laserSpawn.rotation) as GameObject;
     }
 }
