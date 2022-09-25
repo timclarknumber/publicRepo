@@ -8,14 +8,14 @@ public class ShrinkKill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         shrinkLife -= 1 * Time.deltaTime;
-        if (shrinkLife <= 0)
+        if (shrinkLife <= 0 || transform.position.x > 3 || transform.position.x < -3 || transform.position.y > 5)
         {
             Destroy(gameObject);
         }

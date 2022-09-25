@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
+    public GameObject healthPanel;
+    public HealthBar healthBar;
     //public GameObject[] enemyArray;
     //public List<GameObject> activeEnemyList;
     //GameObject[] totalHealthArray;
@@ -25,8 +28,12 @@ public class GameManager : MonoBehaviour
     {
         singleton = this;
     }
-
-
+    /*
+    public static void DoDamage()
+    {
+        healthPanel = healthBar.LoseHealth();
+    }
+    */
     // Update is called once per frame
     void Update()
     {

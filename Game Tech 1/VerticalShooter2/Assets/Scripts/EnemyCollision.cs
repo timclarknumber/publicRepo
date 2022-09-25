@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     public GameObject explosionPrefab;
+    public GameObject healthPanel;
+    public HealthBar healthBar;
+    public float damageDoneToPlayer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +24,6 @@ public class EnemyCollision : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
+        healthBar.LoseHealth(damageDoneToPlayer);
     }
 }
