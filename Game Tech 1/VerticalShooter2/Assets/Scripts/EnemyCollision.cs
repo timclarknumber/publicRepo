@@ -5,25 +5,16 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public GameObject healthPanel;
-    public HealthBar healthBar;
-    public float damageDoneToPlayer = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        GetScoreKillObject();
+    }
+
+    void GetScoreKillObject()
+    {
+        Destroy(gameObject); //destroy this object
+        GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(); //find where the score is displayed, add 1 to the score
         Instantiate(explosionPrefab, transform.position, transform.rotation);
-        healthBar.LoseHealth(damageDoneToPlayer);
     }
 }
