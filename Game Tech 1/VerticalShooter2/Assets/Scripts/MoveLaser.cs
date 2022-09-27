@@ -26,7 +26,7 @@ public class MoveLaser : MonoBehaviour
 
     void CheckLife()
     {
-        lifeCount++; //this used to be used to kill the laser past a certain distance but I realized it's pretty useless for that, it is however good for the curved path physics calculation. So now it just does that, and spawns shrinks.
+        //this used to be used to kill the laser past a certain distance but I realized it's pretty useless for that, it is however good for the curved path physics calculation. So now it just does that, and spawns shrinks.
 
         if (transform.position.y > 9)
         {
@@ -38,7 +38,7 @@ public class MoveLaser : MonoBehaviour
     void Update()
     {
         CheckLife();
-        if (laserLife % 5 == 0)
+        if (lifeCount % 2 == 0)
         {
             GameObject laserShrunk = Instantiate(shrinkLazer, transform.position, transform.rotation) as GameObject;
         }
@@ -47,9 +47,10 @@ public class MoveLaser : MonoBehaviour
 
     void FixedUpdate()
     {
+        lifeCount++; //this tracks how far along the laser is on it's path, it used to do other things, now it does not.
         if (curveShotRight)
-        {
-            GetComponent<Rigidbody2D> ().AddForce ((transform.right * (-lifeCount * curveStrength)) * Time.deltaTime);
+        {//as the laser travels along it's path, force is added based on how far along it is on that path, tracked by 'life count' as well as how strong the curve is desire to be, changed in the editor, and then this is regulated by Time.deltaTime
+            GetComponent<Rigidbody2D> ().AddForce ((transform.right * (-lifeCount * curveStrength)) * Time.deltaTime); 
         } else if (curveShotLeft)
         {
             GetComponent<Rigidbody2D> ().AddForce (transform.right * lifeCount * curveStrength * Time.deltaTime);

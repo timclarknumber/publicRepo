@@ -9,11 +9,14 @@ public class GameAndLevelRestart : MonoBehaviour
 {
     public string firstScene;
     public string currentScene;
+    public string loseStateScene;
+    public string winStateScene;
     public GameObject canvas;
+    public ScoreScript scoreScript;
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.Find("Score_Canvas"); //find the score UI object
+        canvas = GameObject.Find("Canvas"); //find the score UI object
     }
 
     // Update is called once per frame
@@ -34,5 +37,12 @@ public class GameAndLevelRestart : MonoBehaviour
         {
             Application.Quit(); //exit the application
         }
+        if (scoreScript.score < -20)
+        {
+            SceneManager.LoadScene(loseStateScene); //load the lose state scene
+        } else if (scoreScript.score > 25)
+        {
+            SceneManager.LoadScene(winStateScene); //load the win state scene
+        }    
     }
 }

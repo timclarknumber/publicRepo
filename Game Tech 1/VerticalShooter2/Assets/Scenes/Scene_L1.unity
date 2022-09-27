@@ -328,7 +328,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359214134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -755,9 +755,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b5e140bd8b4064c8747c9b189ff4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: Scene_L1
+  firstScene: Scene_start
   currentScene: Scene_L1
+  loseStateScene: Scene_LoseState
+  winStateScene: Scene_WinState
   canvas: {fileID: 674202764}
+  scoreScript: {fileID: 674202769}
 --- !u!1 &1354199583
 GameObject:
   m_ObjectHideFlags: 0
