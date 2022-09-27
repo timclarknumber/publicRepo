@@ -14,6 +14,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -5)
+        {
+            Destroy(gameObject);
+            GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(false); //punish the player for letting the enemy hit the bottom of the screen.
+        }
     }
 }

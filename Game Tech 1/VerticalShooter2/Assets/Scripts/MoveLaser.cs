@@ -26,8 +26,9 @@ public class MoveLaser : MonoBehaviour
 
     void CheckLife()
     {
-        lifeCount++;
-        if (lifeCount == laserLife)
+        lifeCount++; //this used to be used to kill the laser past a certain distance but I realized it's pretty useless for that, it is however good for the curved path physics calculation. So now it just does that, and spawns shrinks.
+
+        if (transform.position.y > 9)
         {
             Destroy(gameObject);
         }    

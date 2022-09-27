@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserMovesAt: 1000
-  laserLife: 250
+  laserLife: 120
   curveStrength: 1
   curveShotRight: 0
   curveShotLeft: 0

@@ -721,6 +721,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPanel: {fileID: 0}
   healthBar: {fileID: 0}
+  dontHit: {fileID: 5985557015390554031, guid: 7ab1b3ef693a7ae4fa25d5fcfd736c13, type: 3}
+  enemyHL: {fileID: 5985557015390554031, guid: 7ab1b3ef693a7ae4fa25d5fcfd736c13, type: 3}
+  enemyHR: {fileID: 1410929092542339376, guid: 1e3cc575965185a4494c28387097016e, type: 3}
+  enemyHD: {fileID: 1241607329998242366, guid: f25552ce8acf93f42ac43e46b48aa24d, type: 3}
+  enemyHU: {fileID: 3891076240407397782, guid: 88ac9815b562d4f4fb6868dcb2baf99c, type: 3}
+  rando: 0
+  enemySpawnHeight: 12
 --- !u!4 &1290845999
 Transform:
   m_ObjectHideFlags: 0
@@ -843,43 +850,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408461917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 359214139}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1420044635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1420044636}
-  m_Layer: 0
-  m_Name: GameRestarter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1420044636
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420044635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.628669, y: 2.5819554, z: 2.2985992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926291027
 GameObject:

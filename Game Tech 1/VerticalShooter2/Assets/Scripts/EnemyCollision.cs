@@ -14,7 +14,7 @@ public class EnemyCollision : MonoBehaviour
     void GetScoreKillObject()
     {
         Destroy(gameObject); //destroy this object
-        GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(true); //find where the score is displayed, add 1 to the score
+        GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(true); //find where the score is displayed, add 5 to the score
         Instantiate(explosionPrefab, transform.position, transform.rotation);
     }
 }

@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6185b207a03104b949b414e5f674fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovesAt: -50
+  enemyMovesAt: -80
 --- !u!1 &5985557016663315125
 GameObject:
   m_ObjectHideFlags: 0
