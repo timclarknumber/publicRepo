@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserMovesAt: 500
   laserLife: 250
-  curveStrength: 150
+  curveStrength: 100
   curveShotRight: 0
   curveShotLeft: 1
   shrinkLazer: {fileID: 3456223395756372041, guid: 1b871943018e91c45be2056017ea8a96, type: 3}

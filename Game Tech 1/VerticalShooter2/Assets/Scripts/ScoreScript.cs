@@ -12,19 +12,18 @@ public class ScoreScript : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    public void AddScore()
+    public void AddScore(bool good)
     {
-        score += 5; //add score
+        if (good)
+        {
+            score += 5; //add score
+        } else
+        {
+            score -= 10;
+        }
         scoreText.text = score.ToString (); //make the score int into a string so it can be displayed
     }
-
-    public void AnotherFunctionName()
-    {
-        score -= 10;
-        scoreText.text = score.ToString(); //make the score int into a string so it can be displayed
-    }
-
 }

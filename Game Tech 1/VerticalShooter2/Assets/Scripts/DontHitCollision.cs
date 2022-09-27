@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollision : MonoBehaviour
+public class DontHitCollision : MonoBehaviour
 {
     public GameObject explosionPrefab;
 
@@ -14,7 +14,7 @@ public class EnemyCollision : MonoBehaviour
     void GetScoreKillObject()
     {
         Destroy(gameObject); //destroy this object
-        GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(true); //find where the score is displayed, add 1 to the score
+        GameObject.Find("Canvas").GetComponent<ScoreScript>().AddScore(false); //find where the score is displayed, take away 10 from the score
         Instantiate(explosionPrefab, transform.position, transform.rotation);
     }
 }
