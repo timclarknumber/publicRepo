@@ -47,7 +47,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 _rb.AddForce(Vector2.up * jumpForce * Time.deltaTime);
             }
-            _shouldJump=false;
+            _shouldJump = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(other.transform, true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(null, true);
         }
     }
 }
