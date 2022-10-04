@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
+    [SerializeField] private PlayerMovement playerMovement;
     private bool _facingRight = true;
     // Start is called before the first frame update
     private void Awake()
@@ -22,6 +24,8 @@ public class PlayerAnimation : MonoBehaviour
         {
             Flip();
         }
+
+        animator.SetFloat("MoveSpeedX",Mathf.Abs(rb.velocity.x) / playerMovement.XSpeed);
     }
 
     private void Flip()

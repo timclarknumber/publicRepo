@@ -1763,6 +1763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1211835917}
+  animator: {fileID: 871084989}
+  playerMovement: {fileID: 0}
 --- !u!1 &1747110705
 GameObject:
   m_ObjectHideFlags: 0
