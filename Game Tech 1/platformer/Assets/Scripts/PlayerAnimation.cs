@@ -26,6 +26,7 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         animator.SetFloat("MoveSpeedX",Mathf.Abs(rb.velocity.x) / playerMovement.XSpeed);
+        animator.SetBool("Grounded", playerMovement.IsGrounded);
     }
 
     private void Flip()

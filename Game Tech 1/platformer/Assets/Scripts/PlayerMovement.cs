@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float _xMoveInput;
 
     private bool _shouldJump;
+    private bool _isGrounded;
+    public bool IsGrounded => _isGrounded;
 
     private void Awake()
     {
@@ -37,11 +39,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Collider2D col = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
-        bool isGrounded = col != null;
+        _isGrounded = col != null;
         _rb.velocity = new Vector2(_xMoveInput, _rb.velocity.y);
         if (_shouldJump)
         {
-            if (isGrounded)
+            if (_isGrounded)
             {
                 _rb.AddForce(Vector2.up * jumpForce * Time.deltaTime);
             }
