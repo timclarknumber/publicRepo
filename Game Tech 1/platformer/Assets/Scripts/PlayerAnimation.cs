@@ -27,6 +27,13 @@ public class PlayerAnimation : MonoBehaviour
 
         animator.SetFloat("MoveSpeedX",Mathf.Abs(rb.velocity.x) / playerMovement.XSpeed);
         animator.SetBool("Grounded", playerMovement.IsGrounded);
+        if (Input.GetKeyDown("i"))
+        {
+            animator.SetBool("Punching", true);
+        } else {
+            animator.SetBool("Punching", false);
+        }
+    
     }
 
     private void Flip()
