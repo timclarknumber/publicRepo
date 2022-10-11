@@ -39,6 +39,12 @@ public class PlayerAnimation : MonoBehaviour
         } else {
             animator.SetBool("MidKicking", false);
         }
+        if (Input.GetKeyDown("n"))
+        {
+            animator.SetBool("LowKicking", true);
+        } else {
+            animator.SetBool("LowKicking", false);
+        }
     
     }
 
