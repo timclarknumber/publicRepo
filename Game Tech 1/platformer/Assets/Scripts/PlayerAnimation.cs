@@ -33,6 +33,12 @@ public class PlayerAnimation : MonoBehaviour
         } else {
             animator.SetBool("Punching", false);
         }
+        if (Input.GetKeyDown("j"))
+        {
+            animator.SetBool("MidKicking", true);
+        } else {
+            animator.SetBool("MidKicking", false);
+        }
     
     }
 
