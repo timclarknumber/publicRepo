@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyGetsHit : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator enemyAnimator;
     [SerializeField] private PlayerMovement playerMovement; //I'm snagging these for this script so I know whether the player is punching or not.
     [SerializeField] private GameObject playerHand;
     [SerializeField] private SpriteRenderer handColor;
@@ -12,6 +13,7 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private SpriteRenderer legColor;
     [SerializeField] private GameObject thisEnemy;
     private Rigidbody2D _rb;
+    private bool justGotHit;
     Color handColorActual;
     Color legColorActual;
     //What am I doing? If you have multiple colliders first of all the punching and kicking will bump into walls in bad ways, but if they're triggers they won't store contact info.
@@ -57,13 +59,21 @@ public class EnemyGetsHit : MonoBehaviour
         {
             //Debug.Log("Ouch!"); // chad
             _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f)));
+            enemyAnimator.SetBool("justGotHit", true);
         }
-        if (legColorActual.b != 1f) //is the hand not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
+        if (legColorActual.b != 1f) //is the leg not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
         {
             //Debug.Log("Ouch!"); // chad
             _rb.AddForce(new Vector2(distx * Time.deltaTime * 10000f, Mathf.Abs(distx * Time.deltaTime * 20000f)));
+            enemyAnimator.SetBool("justGotHit", true);
         }
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            enemyAnimator.SetBool("justGotHit", false);
+        }
+    }
 }
