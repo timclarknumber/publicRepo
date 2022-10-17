@@ -4965,7 +4965,7 @@ GameObject:
   - component: {fileID: 1211835921}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5063,6 +5063,7 @@ MonoBehaviour:
   rb: {fileID: 1211835917}
   animator: {fileID: 1211835921}
   playerMovement: {fileID: 1211835916}
+  facingRight: 1
 --- !u!114 &1211835920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6238,11 +6239,13 @@ MonoBehaviour:
   playerAnimator: {fileID: 1211835921}
   enemyAnimator: {fileID: 1812966550}
   playerMovement: {fileID: 1211835916}
+  playerAnimation: {fileID: 1211835919}
   playerHand: {fileID: 340482163}
   handColor: {fileID: 340482165}
   playerLeg: {fileID: 189614317}
   legColor: {fileID: 189614320}
   thisEnemy: {fileID: 1812966549}
+  facingRightButEnemy: 1
 --- !u!1 &1828889808
 GameObject:
   m_ObjectHideFlags: 0

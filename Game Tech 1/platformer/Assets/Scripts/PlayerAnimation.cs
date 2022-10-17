@@ -7,7 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private PlayerMovement playerMovement;
-    private bool _facingRight = true;
+    public bool facingRight = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -17,10 +17,10 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_facingRight && rb.velocity.x < -0.1)
+        if (facingRight && rb.velocity.x < -0.1)
         {
             Flip();
-        } else if (!_facingRight && rb.velocity.x > 0.1)
+        } else if (!facingRight && rb.velocity.x > 0.1)
         {
             Flip();
         }
@@ -50,7 +50,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Flip()
     {
-        _facingRight = !_facingRight;
+        facingRight = !facingRight;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 }

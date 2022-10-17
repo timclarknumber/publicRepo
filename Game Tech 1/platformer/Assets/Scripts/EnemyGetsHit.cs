@@ -7,6 +7,7 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private PlayerMovement playerMovement; //I'm snagging these for this script so I know whether the player is punching or not.
+    [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private GameObject playerHand;
     [SerializeField] private SpriteRenderer handColor;
     [SerializeField] private GameObject playerLeg;
@@ -14,7 +15,7 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private GameObject thisEnemy;
     private Rigidbody2D _rb;
     private bool justGotHit;
-    private bool _facingRight = true;
+    public bool facingRightButEnemy = true; //yeah i fucked up
     Color handColorActual;
     Color legColorActual;
     //What am I doing? If you have multiple colliders first of all the punching and kicking will bump into walls in bad ways, but if they're triggers they won't store contact info.
@@ -54,17 +55,20 @@ public class EnemyGetsHit : MonoBehaviour
 
     private void Flip()
     {
-        _facingRight = !_facingRight;
+        facingRightButEnemy = !facingRightButEnemy;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
 
     void OnTriggerEnter2D(Collider2D other) //Did something just hit me?
     {
-        float distx = transform.position.x - other.transform.position.x;
-        if (distx < 0)
+        if (playerAnimation.facingRight && facingRightButEnemy)
         {
-            Flip();            
+            Flip();
+        } else if (!playerAnimation.facingRight && !facingRightButEnemy)
+        {
+            Flip();
         }
+        float distx = transform.position.x - other.transform.position.x;
         //Debug.Log(dist);
         if (handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
         {
@@ -82,7 +86,7 @@ public class EnemyGetsHit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("MovingPlatform"))
+        if (!other.gameObject.CompareTag("Player"))
         {
             enemyAnimator.SetBool("justGotHit", false);
         }
