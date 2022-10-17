@@ -7,20 +7,26 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private PlayerMovement playerMovement; //I'm snagging these for this script so I know whether the player is punching or not.
     [SerializeField] private GameObject playerHand;
+    [SerializeField] private SpriteRenderer handColor;
     [SerializeField] private GameObject playerLeg;
+    [SerializeField] private SpriteRenderer legColor;
     [SerializeField] private GameObject thisEnemy;
+    private Rigidbody2D _rb;
+    Color handColorActual;
+    Color legColorActual;
     //What am I doing? If you have multiple colliders first of all the punching and kicking will bump into walls in bad ways, but if they're triggers they won't store contact info.
     //It's not 'efficient', but I have a hard time getting around that without just comparing positions directly.
     private bool playerIsHitting;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         Vector2 whereIAm = new Vector2(thisEnemy.transform.position.x, thisEnemy.transform.position.y);
         Vector2 whereTheHandIs = new Vector2(playerHand.transform.position.x, playerHand.transform.position.y);
         Vector2 whereTheLegIs = new Vector2(playerLeg.transform.position.x, playerLeg.transform.position.y);
@@ -33,5 +39,31 @@ public class EnemyGetsHit : MonoBehaviour
         {
             Debug.Log("ouch!"); //chad
         }
+        This method doesn't work that well...
+        
+        Made all of that ^ and then thought, "hoooooooly knishes what if I used COLOR?! I'm a genius."
+        */
+        handColorActual = handColor.color;
+        legColorActual = legColor.color;
+        //Then it took like 30 minutes to get it working. Not so much of a genius.
     }
+
+
+    void OnTriggerEnter2D(Collider2D other) //Did something just hit me?
+    {
+        float distx = transform.position.x - other.transform.position.x ;
+        //Debug.Log(dist);
+        if (handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
+        {
+            //Debug.Log("Ouch!"); // chad
+            _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f)));
+        }
+        if (legColorActual.b != 1f) //is the hand not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
+        {
+            //Debug.Log("Ouch!"); // chad
+            _rb.AddForce(new Vector2(distx * Time.deltaTime * 10000f, Mathf.Abs(distx * Time.deltaTime * 20000f)));
+        }
+    }
+
+    
 }
