@@ -12,12 +12,17 @@ public class PlayerRespawn : MonoBehaviour
         if (other.gameObject.CompareTag("Hazard"))
         {
             //Respawn
-            transform.position = respawn.transform.position;
+            RespawnThePlayer(); //I did it this way so I can use this function elsewhere.
         }
         else if (other.gameObject.CompareTag("Checkpoint"))
         {
             //Respawn
             respawn = other.transform;
         }
+    }
+
+    public void RespawnThePlayer()
+    {
+        transform.position = respawn.transform.position;
     }
 }

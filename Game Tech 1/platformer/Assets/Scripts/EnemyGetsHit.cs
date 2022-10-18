@@ -14,10 +14,10 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private SpriteRenderer legColor;
     [SerializeField] private GameObject thisEnemy;
     private Rigidbody2D _rb;
+    private Color _handColorActual;
+    private Color _legColorActual;
     public bool facingRightButEnemy = true; //yeah i fucked up
     public bool enemyGotHit = false; //So I have the animator bool justGotHit but for the life of me I cant find how to read the value in it, instead I am doing this.
-    Color handColorActual;
-    Color legColorActual;
     //What am I doing? If you have multiple colliders first of all the punching and kicking will bump into walls in bad ways, but if they're triggers they won't store contact info.
     //It's not 'efficient', but I have a hard time getting around that without just comparing positions directly.
     private bool playerIsHitting;
@@ -46,8 +46,8 @@ public class EnemyGetsHit : MonoBehaviour
         
         Made all of that ^ and then thought, "hoooooooly knishes what if I used COLOR?! I'm a genius."
         */
-        handColorActual = handColor.color;
-        legColorActual = legColor.color;
+        _handColorActual = handColor.color;
+        _legColorActual = legColor.color;
         //Then it took like 30 minutes to get it working. Not so much of a genius.
 
 
@@ -81,14 +81,14 @@ public class EnemyGetsHit : MonoBehaviour
         //Because the player is made of child objects that change color using animations, they change color when in an attack animation.
         //We only want the enemy to act like it just got hit if whatever is touching it is the correct color.
         //Note: This also specifically keeping track of the color of the player children in general. If an enemy touches a red wall or something it shouldn't matter.
-        if (handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
+        if (_handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
         {
             //Debug.Log("Ouch!"); // chad
             _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
             enemyAnimator.SetBool("justGotHit", true); //I just got hit!
             enemyGotHit = true;
         }
-        if (legColorActual.b != 1f) //is the leg not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
+        if (_legColorActual.b != 1f) //is the leg not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
         {
             //Debug.Log("Ouch!"); // chad
             _rb.AddForce(new Vector2(distx * Time.deltaTime * 10000f, Mathf.Abs(distx * Time.deltaTime * 20000f))); //^^
