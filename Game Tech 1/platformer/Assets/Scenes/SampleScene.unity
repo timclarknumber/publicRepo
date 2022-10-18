@@ -6559,6 +6559,7 @@ GameObject:
   - component: {fileID: 1812966550}
   - component: {fileID: 1812966557}
   - component: {fileID: 1812966558}
+  - component: {fileID: 1812966559}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -6683,12 +6684,28 @@ MonoBehaviour:
   farthestExtentRight: -20
   farthestExtentLeft: -50
   xSpeed: 5
+  groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
-  groundCheckRadius: 0.1
   enemyGetsHit: {fileID: 1812966557}
-  IShouldBeMovingRight: 1
+  playerBody: {fileID: 1211835915}
+  ableToAttack: 0
+  IShouldAttack: 0
+--- !u!114 &1812966559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812966549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fca310945fe724a9a67d71397991b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAI: {fileID: 1812966558}
+  animator: {fileID: 1812966550}
 --- !u!1 &1828889808
 GameObject:
   m_ObjectHideFlags: 0

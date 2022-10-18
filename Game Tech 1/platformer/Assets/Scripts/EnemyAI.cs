@@ -7,28 +7,40 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float farthestExtentRight = 0f; //we are going to change these in the editor.
     [SerializeField] private float farthestExtentLeft = 0f;
     [SerializeField] private float xSpeed = 10f;
-    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckRadius = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private EnemyGetsHit enemyGetsHit;
+    [SerializeField] private Transform playerBody;
     private float stopAndThink = 3f;
     private float whenToThink = 3f;
-    public float EnemyXSpeed => xSpeed;
-    private Rigidbody2D _rb;
+    private float _enemyPlayerDist = 20f;
     private bool _isGrounded;
-    public bool EnemyIsGrounded => _isGrounded;
+    private Rigidbody2D _rb;
     private bool _IShouldBeMovingRight = true;
-
+    public float EnemyXSpeed => xSpeed;
+    public float ableToAttack = 0f;
+    public bool EnemyIsGrounded => _isGrounded;
+    public bool IShouldAttack = false;
     
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        _enemyPlayerDist = transform.position.x - playerBody.position.x;
+        if (ableToAttack < 5f)
+        {
+            ableToAttack += Time.deltaTime;
+        }
+        Debug.Log(_enemyPlayerDist);
+    }
+
     private void FixedUpdate()
     {
         Collider2D col = Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundLayer);
         _isGrounded = col != null;
-
 
         if (!enemyGetsHit.enemyGotHit) //none of what happens here can happen if the enemy just got hit by something.
         {
@@ -70,6 +82,24 @@ public class EnemyAI : MonoBehaviour
                     stopAndThink = 3f;
                     //Hadouuuken.
                     whenToThink = 3f;
+                }
+            }
+            //The following code will have the enemy do a random attack when the player is near.
+            if (ableToAttack >= 5f) //I was gonna make this a while loop and then it nearly bricked my project. Never again.
+            {
+                if (enemyGetsHit.facingRightButEnemy)
+                {
+                    if (_enemyPlayerDist < 0f && _enemyPlayerDist > -2f) //the enemy attacks if the player is less than 2 away from them.
+                    {
+                        IShouldAttack = true;
+                    }
+                }
+                if (!enemyGetsHit.facingRightButEnemy)
+                {
+                    if (_enemyPlayerDist > 0f && _enemyPlayerDist < 2f)
+                    {
+                        IShouldAttack = true;
+                    }
                 }
             }
         }
