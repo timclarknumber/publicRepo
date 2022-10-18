@@ -49,6 +49,12 @@ public class EnemyGetsHit : MonoBehaviour
         handColorActual = handColor.color;
         legColorActual = legColor.color;
         //Then it took like 30 minutes to get it working. Not so much of a genius.
+
+
+        //If the enemy falls off a cliff or something, kill them.
+        if (transform.position.y < -20) {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -89,6 +95,8 @@ public class EnemyGetsHit : MonoBehaviour
             enemyAnimator.SetBool("justGotHit", true); //^^
             enemyGotHit = true;
         }
+
+        //Destroy the enemy if they touch a wall.
         if (other.gameObject.CompareTag("Hazard"))
         {
             Debug.Log("Im touching something that should be killing me right now");
@@ -96,6 +104,7 @@ public class EnemyGetsHit : MonoBehaviour
         }
     }
 
+    //If the enemy touches a wall, they can stop acting as if they've just been hit.
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
