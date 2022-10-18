@@ -11,7 +11,7 @@ public class SceneSwitch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-        SceneManager.LoadScene(sceneName); //change the scene
+            SceneManager.LoadScene(sceneName); //change the scene
         }
     }
 }

@@ -75,6 +75,7 @@ public class EnemyGetsHit : MonoBehaviour
             Flip();
         }
         float distx = transform.position.x - other.transform.position.x; //this float is the distance between the enemy and whatever just hit it.
+        Debug.Log(1 - distx);
         //Debug.Log(dist);
 
         //in these if statements, if the enemy just got touched by something, it wants to know what color that thing is. Why?
