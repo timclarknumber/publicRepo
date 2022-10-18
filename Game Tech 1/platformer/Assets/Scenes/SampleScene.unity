@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 189614321}
   m_Layer: 0
   m_Name: Leg
-  m_TagString: Untagged
+  m_TagString: PlayerLimb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3991,7 +3991,7 @@ GameObject:
   - component: {fileID: 340482166}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: PlayerLimb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

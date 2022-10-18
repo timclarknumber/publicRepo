@@ -34,7 +34,6 @@ public class EnemyAI : MonoBehaviour
         {
             ableToAttack += Time.deltaTime;
         }
-        Debug.Log(_enemyPlayerDist);
     }
 
     private void FixedUpdate()
