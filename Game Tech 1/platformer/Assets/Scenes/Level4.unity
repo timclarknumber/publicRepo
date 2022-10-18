@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstScene: Tutorial
-  currentScene: Level3
+  currentScene: Level4
 --- !u!4 &282669055
 Transform:
   m_ObjectHideFlags: 0

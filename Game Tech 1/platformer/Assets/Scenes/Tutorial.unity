@@ -900,8 +900,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatBarrierThisIs: 2
-  handColor: {fileID: 0}
-  legColor: {fileID: 0}
+  handColor: {fileID: 1885722773}
+  legColor: {fileID: 450727160}
 --- !u!212 &594019852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1167,8 +1167,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294904576
-  m_fontColor: {r: 0, g: 0.04313898, b: 1, a: 1}
+    rgba: 4280155904
+  m_fontColor: {r: 0, g: 1, b: 0.11449838, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15160,7 +15160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0082236d5df2ac645962f3677d1bce1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 982388502}
   greenText: {fileID: 1069264013}
   yellowText: {fileID: 842317018}
   redText: {fileID: 781234692}
@@ -15408,8 +15408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatBarrierThisIs: 0
-  handColor: {fileID: 0}
-  legColor: {fileID: 0}
+  handColor: {fileID: 1885722773}
+  legColor: {fileID: 450727160}
 --- !u!212 &1855458196
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15536,8 +15536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatBarrierThisIs: 1
-  handColor: {fileID: 0}
-  legColor: {fileID: 0}
+  handColor: {fileID: 1885722773}
+  legColor: {fileID: 450727160}
 --- !u!212 &1869327753
 SpriteRenderer:
   m_ObjectHideFlags: 0
