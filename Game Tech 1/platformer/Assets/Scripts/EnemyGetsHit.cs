@@ -13,6 +13,7 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private GameObject playerLeg;
     [SerializeField] private SpriteRenderer legColor;
     [SerializeField] private GameObject thisEnemy;
+    [SerializeField] private bool smallOrNot = false;
     private Rigidbody2D _rb;
     private Color _handColorActual;
     private Color _legColorActual;
@@ -82,20 +83,34 @@ public class EnemyGetsHit : MonoBehaviour
         //Because the player is made of child objects that change color using animations, they change color when in an attack animation.
         //We only want the enemy to act like it just got hit if whatever is touching it is the correct color.
         //Note: This also specifically keeping track of the color of the player children in general. If an enemy touches a red wall or something it shouldn't matter.
-        if (_handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
+
+        if (!smallOrNot) //if the enemy isn't small.
         {
-            //Debug.Log("Ouch!"); // chad
-            _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
-            enemyAnimator.SetBool("justGotHit", true); //I just got hit!
-            enemyGotHit = true;
+            if (_handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
+            {
+                //Debug.Log("Ouch!"); // chad
+                _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
+                enemyAnimator.SetBool("justGotHit", true); //I just got hit!
+                enemyGotHit = true;
+            }
+            if (_legColorActual.b != 1f) //is the leg not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
+            {
+                //Debug.Log("Ouch!"); // chad
+                _rb.AddForce(new Vector2(distx * Time.deltaTime * 10000f, Mathf.Abs(distx * Time.deltaTime * 20000f))); //^^
+                enemyAnimator.SetBool("justGotHit", true); //^^
+                enemyGotHit = true;
+            }
+        } else { //the enemy IS small
+            if (_legColorActual.r == 1f && _legColorActual.g != 1) //is the leg red but not green? If it is red but not green, it's just red. Low kicks only for small enemies.
+            {
+                //Debug.Log("Ouch!"); // chad
+                _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
+                enemyAnimator.SetBool("justGotHit", true); //I just got hit!
+                enemyGotHit = true;
+            }
         }
-        if (_legColorActual.b != 1f) //is the leg not blue? If it isn't blue (white is blue cuz rgb), then it must be yellow/red (nimation makes leg become yellow/red when it's normally white [white is blue])
-        {
-            //Debug.Log("Ouch!"); // chad
-            _rb.AddForce(new Vector2(distx * Time.deltaTime * 10000f, Mathf.Abs(distx * Time.deltaTime * 20000f))); //^^
-            enemyAnimator.SetBool("justGotHit", true); //^^
-            enemyGotHit = true;
-        }
+
+        
 
         //Destroy the enemy if they touch a wall.
         if (other.gameObject.CompareTag("Hazard"))
