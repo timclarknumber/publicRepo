@@ -9,6 +9,9 @@ public class SceneSwitch : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Player"))
+        {
         SceneManager.LoadScene(sceneName); //change the scene
+        }
     }
 }
