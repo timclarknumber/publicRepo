@@ -52,8 +52,8 @@ public class EnemyGetsHit : MonoBehaviour
     }
 
 
-    private void Flip()
-    { //this code means flips the object around.
+    public void Flip() //would it have been smarter to make a public version of this function in like a singleton somewhere and then just reference that or to have this damn function everywhere I want to flip things?
+    { //this code flips the object around.
         facingRightButEnemy = !facingRightButEnemy;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
     }
