@@ -89,6 +89,11 @@ public class EnemyGetsHit : MonoBehaviour
             enemyAnimator.SetBool("justGotHit", true); //^^
             enemyGotHit = true;
         }
+        if (other.gameObject.CompareTag("Hazard"))
+        {
+            Debug.Log("Im touching something that should be killing me right now");
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
