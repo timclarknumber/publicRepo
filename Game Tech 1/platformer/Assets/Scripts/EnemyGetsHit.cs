@@ -14,6 +14,7 @@ public class EnemyGetsHit : MonoBehaviour
     [SerializeField] private SpriteRenderer legColor;
     [SerializeField] private GameObject thisEnemy;
     [SerializeField] private bool smallOrNot = false;
+    [SerializeField] private bool tallOrNot = false;
     private Rigidbody2D _rb;
     private Color _handColorActual;
     private Color _legColorActual;
@@ -84,7 +85,7 @@ public class EnemyGetsHit : MonoBehaviour
         //We only want the enemy to act like it just got hit if whatever is touching it is the correct color.
         //Note: This also specifically keeping track of the color of the player children in general. If an enemy touches a red wall or something it shouldn't matter.
 
-        if (!smallOrNot) //if the enemy isn't small.
+        if (!smallOrNot && !tallOrNot) //if the enemy isn't small or tall
         {
             if (_handColorActual.r != 1f) //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
             {
@@ -100,9 +101,18 @@ public class EnemyGetsHit : MonoBehaviour
                 enemyAnimator.SetBool("justGotHit", true); //^^
                 enemyGotHit = true;
             }
-        } else { //the enemy IS small
+        } else if (smallOrNot) { //the enemy IS small
             if (_legColorActual.r == 1f && _legColorActual.g != 1) //is the leg red but not green? If it is red but not green, it's just red. Low kicks only for small enemies.
             {
+                //Debug.Log("Ouch!"); // chad
+                _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
+                enemyAnimator.SetBool("justGotHit", true); //I just got hit!
+                enemyGotHit = true;
+            }
+        } else if (tallOrNot) 
+        { //the enemy is tall
+            if (_handColorActual.r != 1f)  //is the hand not red? If it isn't red (white is red cuz rgb), then it must be green (hand animation makes hand become green when it's normally white)
+            { //we only want tall enemies to get hit by the hi punch
                 //Debug.Log("Ouch!"); // chad
                 _rb.AddForce(new Vector2(distx * Time.deltaTime * 20000f, Mathf.Abs(distx * Time.deltaTime * 30000f))); //we want how close the thing that hit the enemy to determine how far/quickly the enemy is flung
                 enemyAnimator.SetBool("justGotHit", true); //I just got hit!
