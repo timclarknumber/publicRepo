@@ -4879,6 +4879,10 @@ MonoBehaviour:
   rb: {fileID: 1211835917}
   animator: {fileID: 1211835921}
   playerMovement: {fileID: 1211835916}
+  playerRespawn: {fileID: 1211835920}
+  legColor: {fileID: 189614320}
+  handColor: {fileID: 340482165}
+  eyesOpen: {fileID: 293464734}
   facingRight: 1
 --- !u!114 &1211835920
 MonoBehaviour:
