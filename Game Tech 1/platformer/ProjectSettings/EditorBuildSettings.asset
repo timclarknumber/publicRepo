@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 82a80238dc32ed0448da90edd24979e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 69b4d0fb56b670347bc27cb918cdacd1
+  - enabled: 1
+    path: Assets/Scenes/LoseState.unity
+    guid: a28384f20bd0bd84e8583d5e8efac058
   m_configObjects: {}
