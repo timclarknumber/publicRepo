@@ -20,7 +20,8 @@ public class playerMovement : MonoBehaviour
         {
             moveBuffer -= Time.deltaTime;
         }
-        if (moveBuffer <= 0) {
+        if (moveBuffer <= 0) 
+        {
             if (Input.GetKeyDown(KeyCode.W)) {
                 transform.position = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
                 lastMove = "W";
