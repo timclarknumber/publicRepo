@@ -7,10 +7,11 @@ public class playerMovement : MonoBehaviour
     private string lastMove;
     private float moveBuffer;
     [SerializeField]private float moveBufferTime = 1;
+    [SerializeField]private SceneSwapCombat sceneScript;
     // Start is called before the first frame update
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
