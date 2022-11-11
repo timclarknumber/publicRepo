@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthTransform: {fileID: 0}
   fromCombatToOverworld: 0
-  whereToSpawn: {x: 0.5, y: -0.5, z: 0}
 --- !u!4 &276813429
 Transform:
   m_ObjectHideFlags: 0
@@ -757,6 +756,8 @@ MonoBehaviour:
   thisTransform: {fileID: 479488630}
   sceneScript: {fileID: 276813428}
   sceneBruh: {fileID: 276813427}
+  ComeToMe: {fileID: 0}
+  ComeToMePrefab: {fileID: 1808923551820165005, guid: 3adc49303e6c13f458a9c8bc500a1867, type: 3}
   myName: FrienfButScary
 --- !u!1 &519420028
 GameObject:
