@@ -25,26 +25,26 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerX = playerTransform.position.x;
+        playerX = playerTransform.position.x; //keep track of where the player is
         playerY = playerTransform.position.y;
-        if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5)
+        if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
         {
-            sceneScript.GoToCombat(myName);
-            if (GameObject.Find("ComeToMe(Clone)") == null)
+            sceneScript.GoToCombat(myName); //send the user to the combat scene
+            if (GameObject.Find("ComeToMe(Clone)") == null) //if there isnt a come to me yet
             {
-                Instantiate(ComeToMePrefab, thisTransform.position, Quaternion.identity);
+                Instantiate(ComeToMePrefab, thisTransform.position, Quaternion.identity); //make a come to me
             }
             
         }
-        if (GameObject.Find("ComeToMe") != null)
+        if (GameObject.Find("ComeToMe") != null) //if there is a come to me
         {
-            ComeToMe = GameObject.Find("ComeToMe");
+            ComeToMe = GameObject.Find("ComeToMe"); //do stuff with the come to me
             if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
-            {
-                Destroy(gameObject);
+            { //^ if the come to me is touching me
+                Destroy(gameObject); //damn...
             }
         }
-        if (GameObject.Find("ComeToMe(Clone)") != null)
+        if (GameObject.Find("ComeToMe(Clone)") != null) //`` but with clone because its a prefab so yeah.
         {
             ComeToMe = GameObject.Find("ComeToMe(Clone)");
             if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
