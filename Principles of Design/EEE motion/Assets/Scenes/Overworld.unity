@@ -219,6 +219,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!483693784 &338192598
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -751,12 +752,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82fc5c720670f74abfd598d1ff9d3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myHealth: 10
+  myDamage: 1
+  mySprite: Basic
   playerTransform: {fileID: 1639920721}
   thisTransform: {fileID: 479488630}
   sceneScript: {fileID: 276813428}
+  enemyInfoHeld: {fileID: 0}
   sceneBruh: {fileID: 276813427}
   ComeToMe: {fileID: 0}
   ComeToMePrefab: {fileID: 1808923551820165005, guid: 3adc49303e6c13f458a9c8bc500a1867, type: 3}
+  variableHolder: {fileID: 0}
   myName: FrienfButScary
 --- !u!1 &519420028
 GameObject:
@@ -920,6 +926,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -11132,7 +11139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -11666,6 +11672,7 @@ GameObject:
   - component: {fileID: 1639920723}
   - component: {fileID: 1639920724}
   - component: {fileID: 1639920725}
+  - component: {fileID: 1639920726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -11818,6 +11825,18 @@ MonoBehaviour:
   AngerLove: 0
   LonelyOverstimulated: 0
   FearConfidence: 0
+--- !u!114 &1639920726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639920718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117a1074b473f8043a678ddc990a3a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1962116445
 GameObject:
   m_ObjectHideFlags: 0

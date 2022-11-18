@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    [SerializeField]private float myHealth = 0;
+    [SerializeField]private float myDamage = 0;
+    [SerializeField]private string mySprite = "";
     [SerializeField]private Transform playerTransform;
     [SerializeField]private Transform thisTransform;
     [SerializeField]private SceneSwapCombat sceneScript;
+    [SerializeField]private EnemyInfoHolder enemyInfoHeld;
     [SerializeField]private GameObject sceneBruh;
     [SerializeField]private GameObject ComeToMe;
     [SerializeField]private GameObject ComeToMePrefab;
+    [SerializeField]private GameObject variableHolder;
     [SerializeField]private string myName;
+
     private float playerX;
     private float playerY;
     private float thisX;
@@ -20,6 +26,8 @@ public class EnemyScript : MonoBehaviour
     {
         thisX = thisTransform.position.x;
         thisY = thisTransform.position.y;
+        variableHolder = GameObject.Find("EnemyInfoHolder");
+        enemyInfoHeld = variableHolder.GetComponent<EnemyInfoHolder>();
     }
 
     // Update is called once per frame
@@ -29,6 +37,9 @@ public class EnemyScript : MonoBehaviour
         playerY = playerTransform.position.y;
         if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
         {
+            enemyInfoHeld.enemyHealth = myHealth;
+            enemyInfoHeld.enemyDamage = myDamage;
+            enemyInfoHeld.enemySprite = mySprite;
             sceneScript.GoToCombat(myName); //send the user to the combat scene
             if (GameObject.Find("ComeToMe(Clone)") == null) //if there isnt a come to me yet
             {

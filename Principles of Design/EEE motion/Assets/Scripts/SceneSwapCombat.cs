@@ -28,4 +28,9 @@ public class SceneSwapCombat : MonoBehaviour
     {
         SceneManager.LoadScene("CombatScreen");
     }
+
+    public void GoToOverworld()
+    {
+        SceneManager.LoadScene("Overworld");
+    }
 }

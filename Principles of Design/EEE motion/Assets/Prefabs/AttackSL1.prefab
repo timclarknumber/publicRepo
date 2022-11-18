@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198c0cba8d8f41c4a8bf2418c5eb18ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyHealthBar: {fileID: 0}
+  enemyHealthScript: {fileID: 0}
+  damageIDo: 1
   holdObject: {fileID: 0}
   holdScript: {fileID: 0}
   changeSJ: -1
