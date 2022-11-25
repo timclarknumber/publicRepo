@@ -10,11 +10,7 @@ public class EmotionText : MonoBehaviour
     public TextMeshProUGUI lonelyOverstimulatedText;
     public TextMeshProUGUI fearConfidenceText;
     public Emotions emotions;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

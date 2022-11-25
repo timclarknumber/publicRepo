@@ -18,6 +18,10 @@ public class PlayerVariablesHeld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SadJoyHeld = Mathf.Clamp(SadJoyHeld,-2,2);
+        AngerLoveHeld = Mathf.Clamp(AngerLoveHeld,-2,2);
+        LonelyOverstimulatedHeld = Mathf.Clamp(LonelyOverstimulatedHeld,-2,2);
+        FearConfidenceHeld = Mathf.Clamp(FearConfidenceHeld,-2,2);
         if (GameObject.Find("Player") != null) //is there a player?
         {
             player = GameObject.Find("Player"); //lets do stuff with the player if it exists
