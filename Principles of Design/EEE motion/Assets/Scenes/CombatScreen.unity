@@ -206,10 +206,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 873359980}
-        m_TargetAssemblyTypeName: HealthLower, Assembly-CSharp
-        m_MethodName: lowerHealthBy
-        m_Mode: 4
+      - m_Target: {fileID: 411349658}
+        m_TargetAssemblyTypeName: AttackInstantiate, Assembly-CSharp
+        m_MethodName: spawnEnemyAttackL1
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackSl1: {fileID: 2350103723378662539, guid: 400643ec22d3a8546a8fd7933c01d16b, type: 3}
+  EnemyAttackL1: {fileID: 3192583646045513452, guid: fc9f47f6c72c55644b0a1bd80bf6a885, type: 3}
 --- !u!1 &520918371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1454,7 @@ MonoBehaviour:
   angerLoveText: {fileID: 766363025}
   lonelyOverstimulatedText: {fileID: 928654927}
   fearConfidenceText: {fileID: 777074400}
+  playerVariableHolder: {fileID: 0}
   emotions: {fileID: 0}
 --- !u!1 &1029218127
 GameObject:
