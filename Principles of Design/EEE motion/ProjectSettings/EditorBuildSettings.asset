@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 68a859186abe02b4497370f7012b054c
   - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 5d097281bcaa75f43b47f0dbf2d4e95c
   - enabled: 1
     path: Assets/Scenes/CombatScreen.unity
     guid: dd311d772960efa44b20d33c83ecf4ee
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: a20c64c1aa1a0d44682bfaea635539e1
   m_configObjects: {}
