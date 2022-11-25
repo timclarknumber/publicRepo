@@ -45,7 +45,6 @@ public class EnemyScript : MonoBehaviour
             {
                 Instantiate(ComeToMePrefab, thisTransform.position, Quaternion.identity); //make a come to me
             }
-            
         }
         if (GameObject.Find("ComeToMe") != null) //if there is a come to me
         {
