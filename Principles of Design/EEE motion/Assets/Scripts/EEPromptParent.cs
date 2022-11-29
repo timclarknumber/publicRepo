@@ -5,6 +5,8 @@ using UnityEngine;
 public class EEPromptParent : MonoBehaviour
 {
     [SerializeField]private Transform thisTransform;
+    [SerializeField]private GameObject AttackKey1;
+    [SerializeField]private GameObject AttackKey2;
 
     public void playerCanSeeMe()
     {
@@ -14,5 +16,15 @@ public class EEPromptParent : MonoBehaviour
     public void doneWithThisPrompt()
     {
         Destroy(gameObject);
+    }
+
+    public void unlockAttack1()
+    {
+        Instantiate(AttackKey1, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void unlockAttack2()
+    {
+        Instantiate(AttackKey2, new Vector3(0,0,0), Quaternion.identity);
     }
 }
