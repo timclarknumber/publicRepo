@@ -15,7 +15,7 @@ public class ChangeColorAndDie : MonoBehaviour
     {
         if (GameObject.Find("ExperienceCanvas") != null) //is there a UI canvas?
         {
-            thisText.transform.parent = GameObject.Find("ExperienceCanvas").transform;
+            thisText.transform.SetParent(GameObject.Find("ExperienceCanvas").transform, false);
         }
         red = Random.Range(0f, 255f);
         green = Random.Range(0f, 255f);

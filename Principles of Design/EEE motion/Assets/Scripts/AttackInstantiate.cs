@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class AttackInstantiate : MonoBehaviour
 {
-    public GameObject AttackSl1;
+    public GameObject AttackSad;
+    public GameObject AttackHappy;
     public GameObject EnemyAttackL1;
 
-    public void spawnAttackSl1()
+    public void spawnAttackSad()
     {
-        Instantiate(AttackSl1, new Vector3(0,0,0), Quaternion.identity);
+        Instantiate(AttackSad, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void spawnAttackHappy()
+    {
+        Instantiate(AttackHappy, new Vector3(0,0,0), Quaternion.identity);
     }
 
     public void spawnEnemyAttackL1()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class ChangeEmotions : MonoBehaviour
 {
     [SerializeField]private GameObject EnemyHealthBar;
+    [SerializeField]private GameObject combatCanvas;
     [SerializeField]private EnemyHealthBar enemyHealthScript;
+    [SerializeField]private AttackInstantiate attackInstantiate;
     [SerializeField]private float damageIDo = 0;
     public GameObject holdObject;
     public PlayerVariablesHeld holdScript;
@@ -17,6 +19,11 @@ public class ChangeEmotions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.Find("CombatCanvas") != null) //is there a player?
+        {
+            combatCanvas = GameObject.Find("CombatCanvas");
+            attackInstantiate = combatCanvas.GetComponent<AttackInstantiate>(); 
+        }
         if (GameObject.Find("PlayerVariableHolder") != null) //is there a player?
         {
             holdObject = GameObject.Find("PlayerVariableHolder"); //lets do stuff with the player if it exists
@@ -52,5 +59,6 @@ public class ChangeEmotions : MonoBehaviour
     private void changeEnemyHealth()
     {
         enemyHealthScript.lowerEnemyHealthBar(damageIDo);
+        attackInstantiate.spawnEnemyAttackL1();
     }
 }

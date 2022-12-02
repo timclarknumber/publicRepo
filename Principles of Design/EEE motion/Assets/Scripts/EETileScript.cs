@@ -15,19 +15,32 @@ public class EETileScript : MonoBehaviour
     private float thisX;
     private float thisY;
     // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        thisX = thisTransform.position.x;
-        thisY = thisTransform.position.y;
+        DontDestroyOnLoad(gameObject); //don kill me vro
     }
 
     void Update()
     {
-        playerX = playerTransform.position.x; //keep track of where the player is
-        playerY = playerTransform.position.y;
-        if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
+        thisX = thisTransform.position.x;
+        thisY = thisTransform.position.y;
+
+        if (GameObject.Find("Player") != null) //is there a player?
         {
-            summonPrompt();
+            playerTransform = GameObject.Find("Player").transform;
+        } else {
+            playerTransform = null;
+        }
+
+        if (playerTransform != null) //is there a player?
+        {
+            playerX = playerTransform.position.x; //keep track of where the player is
+            playerY = playerTransform.position.y;
+            if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
+            {
+                summonPrompt();
+            }
         }
     }
 
@@ -38,7 +51,7 @@ public class EETileScript : MonoBehaviour
             promptISummon = GameObject.Find(promptISummonName);
             promptScript = promptISummon.GetComponent<EEPromptParent>();
             promptScript.playerCanSeeMe();
-            Destroy(gameObject);
+            thisTransform.position = new Vector3 (5000f, 5000f, 0f);
         }
     }
 }
