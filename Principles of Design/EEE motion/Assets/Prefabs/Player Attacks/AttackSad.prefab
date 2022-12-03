@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealthBar: {fileID: 0}
+  combatCanvas: {fileID: 0}
   enemyHealthScript: {fileID: 0}
-  damageIDo: 1
+  attackInstantiate: {fileID: 0}
+  damageIDo: 2
+  healthIHeal: 0
   holdObject: {fileID: 0}
   holdScript: {fileID: 0}
   changeSJ: -1

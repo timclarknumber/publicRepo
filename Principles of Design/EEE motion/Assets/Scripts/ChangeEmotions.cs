@@ -5,8 +5,10 @@ using UnityEngine;
 public class ChangeEmotions : MonoBehaviour
 {
     [SerializeField]private GameObject EnemyHealthBar;
+    [SerializeField]private GameObject playerHealthBar;
     [SerializeField]private GameObject combatCanvas;
     [SerializeField]private EnemyHealthBar enemyHealthScript;
+    [SerializeField]private HealthLower healthLower;
     [SerializeField]private AttackInstantiate attackInstantiate;
     [SerializeField]private float damageIDo = 0;
     [SerializeField]private float healthIHeal = 0;
@@ -20,6 +22,11 @@ public class ChangeEmotions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.Find("PlayerHealthBar") != null) //is there a player?
+        {
+            playerHealthBar = GameObject.Find("PlayerHealthBar");
+            healthLower = playerHealthBar.GetComponent<HealthLower>(); 
+        }
         if (GameObject.Find("CombatCanvas") != null) //is there a player?
         {
             combatCanvas = GameObject.Find("CombatCanvas");
@@ -35,15 +42,17 @@ public class ChangeEmotions : MonoBehaviour
         }
         EnemyHealthBar = GameObject.Find("EnemyHealthBar");
         enemyHealthScript = EnemyHealthBar.GetComponent<EnemyHealthBar>();
+
+        healthIHeal *= -1; //this is confusing but 'health lower' is meant to lower health but this number is supposed to heal, so it gets flipped. Don't mess with this.
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if (holdObject != null)
         { //there should always be exactly 1 function in this condition that destroys the object, no more no less, and it should be at the end of the result.
             changeEnemyHealth();
+            changePlayerHealth();
             changeEmotionNumbers(); //make sure this happens last as this function destroys the object.
         }
     }
@@ -62,4 +71,10 @@ public class ChangeEmotions : MonoBehaviour
         enemyHealthScript.lowerEnemyHealthBar(damageIDo);
         attackInstantiate.spawnEnemyAttackL1();
     }
+
+    private void changePlayerHealth()
+    {
+        healthLower.lowerHealthBy(healthIHeal); //this calls a function which changes the player's health bar
+    }
+
 }
