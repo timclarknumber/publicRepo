@@ -9,6 +9,7 @@ public class ChangeEmotions : MonoBehaviour
     [SerializeField]private EnemyHealthBar enemyHealthScript;
     [SerializeField]private AttackInstantiate attackInstantiate;
     [SerializeField]private float damageIDo = 0;
+    [SerializeField]private float healthIHeal = 0;
     public GameObject holdObject;
     public PlayerVariablesHeld holdScript;
     public int changeSJ = 0;
