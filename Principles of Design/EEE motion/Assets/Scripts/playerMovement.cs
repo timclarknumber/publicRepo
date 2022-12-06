@@ -6,18 +6,24 @@ public class playerMovement : MonoBehaviour
 {
     private string lastMove;
     private float moveBuffer;
+    private bool paused = false;
     [SerializeField]private float moveBufferTime = 1;
     [SerializeField]private SceneSwapCombat sceneScript;
+    [SerializeField]private PauseScript pauseScript;
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
+        if (pauseScript != null)
+        {
+            paused = pauseScript.pausedRn;
+        }
         if (moveBuffer > 0)
         {
             moveBuffer -= Time.deltaTime;
         }
-        if (moveBuffer <= 0) 
+        if (moveBuffer <= 0 && !paused) 
         {
             if (Input.GetKeyDown(KeyCode.W)) {
                 transform.position = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
