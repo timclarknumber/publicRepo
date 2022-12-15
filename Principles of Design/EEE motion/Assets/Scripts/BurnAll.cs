@@ -7,6 +7,7 @@ public class BurnAll : MonoBehaviour
     [SerializeField]private GameObject playerVariableHolder;
     [SerializeField]private GameObject enemyInfo;
     [SerializeField]private GameObject ComeToMe;
+    [SerializeField]private GameObject WinStateCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,11 @@ public class BurnAll : MonoBehaviour
         {
             ComeToMe = GameObject.Find("ComeToMe(Clone)"); //burn it 
             Destroy(ComeToMe);
+        }
+        if (GameObject.Find("WinStateCounter") != null) //if there is a win state counter 
+        {
+            WinStateCounter = GameObject.Find("WinStateCounter"); //burn it 
+            Destroy(WinStateCounter);
         }
     }
 }

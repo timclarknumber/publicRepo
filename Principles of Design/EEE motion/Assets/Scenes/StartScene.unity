@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesNeeded: 7
-  winLevelName: 
+  winLevelName: WinState
 --- !u!4 &1060994544
 Transform:
   m_ObjectHideFlags: 0
