@@ -11,10 +11,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]private Transform thisTransform;
     [SerializeField]private SceneSwapCombat sceneScript;
     [SerializeField]private EnemyInfoHolder enemyInfoHeld;
+    [SerializeField]private WinScript winScript;
     [SerializeField]private GameObject sceneBruh;
     [SerializeField]private GameObject ComeToMe;
     [SerializeField]private GameObject ComeToMePrefab;
     [SerializeField]private GameObject variableHolder;
+    [SerializeField]private GameObject winStateCounter;
     [SerializeField]private string myName;
 
     private float playerX;
@@ -26,8 +28,17 @@ public class EnemyScript : MonoBehaviour
     {
         thisX = thisTransform.position.x;
         thisY = thisTransform.position.y;
-        variableHolder = GameObject.Find("EnemyInfoHolder");
-        enemyInfoHeld = variableHolder.GetComponent<EnemyInfoHolder>();
+        if (GameObject.Find("EnemyInfoHolder") != null)
+        {
+            variableHolder = GameObject.Find("EnemyInfoHolder");
+            enemyInfoHeld = variableHolder.GetComponent<EnemyInfoHolder>();
+        }
+
+        if (GameObject.Find("winStateCounter") != null)
+        {
+            winStateCounter = GameObject.Find("winStateCounter");
+            winScript = winStateCounter.GetComponent<WinScript>();
+        }
     }
 
     // Update is called once per frame
