@@ -27,4 +27,5 @@ public class EEPromptParent : MonoBehaviour
     {
         Instantiate(AttackKey2, new Vector3(0,0,0), Quaternion.identity);
     }
+    
 }

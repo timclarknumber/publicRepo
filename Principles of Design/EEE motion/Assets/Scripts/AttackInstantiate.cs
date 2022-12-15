@@ -6,6 +6,9 @@ public class AttackInstantiate : MonoBehaviour
 {
     public GameObject AttackSad;
     public GameObject AttackHappy;
+    public GameObject AttackAfraid;
+    public GameObject AttackConfident;
+    public GameObject AttackFearOfClowns;
     public GameObject EnemyAttackL1;
 
     public void spawnAttackSad()
@@ -16,6 +19,21 @@ public class AttackInstantiate : MonoBehaviour
     public void spawnAttackHappy()
     {
         Instantiate(AttackHappy, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void spawnAttackAfraid()
+    {
+        Instantiate(AttackAfraid, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void spawnAttackConfident()
+    {
+        Instantiate(AttackConfident, new Vector3(0,0,0), Quaternion.identity);
+    }
+
+    public void spawnAttackFearOfClowns()
+    {
+        Instantiate(AttackFearOfClowns, new Vector3(0,0,0), Quaternion.identity);
     }
 
     public void spawnEnemyAttackL1()
