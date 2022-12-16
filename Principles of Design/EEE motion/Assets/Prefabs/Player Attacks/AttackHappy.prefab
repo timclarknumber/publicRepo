@@ -47,6 +47,7 @@ MonoBehaviour:
   EnemyHealthBar: {fileID: 0}
   playerHealthBar: {fileID: 0}
   combatCanvas: {fileID: 0}
+  visToSpawn: {fileID: 3562527055787024218, guid: e9f8a11ac7365b540a61a6b148d2e4a6, type: 3}
   enemyHealthScript: {fileID: 0}
   healthLower: {fileID: 0}
   attackInstantiate: {fileID: 0}

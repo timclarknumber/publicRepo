@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealthBar: {fileID: 0}
+  playerHealthBar: {fileID: 0}
   combatCanvas: {fileID: 0}
+  visToSpawn: {fileID: 3562527055787024218, guid: a0e7406bcb3599d4585a4b02e02825fa, type: 3}
   enemyHealthScript: {fileID: 0}
+  healthLower: {fileID: 0}
   attackInstantiate: {fileID: 0}
   damageIDo: 0
   healthIHeal: 16

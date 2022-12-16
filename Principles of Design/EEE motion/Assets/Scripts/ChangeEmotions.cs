@@ -7,11 +7,13 @@ public class ChangeEmotions : MonoBehaviour
     [SerializeField]private GameObject EnemyHealthBar;
     [SerializeField]private GameObject playerHealthBar;
     [SerializeField]private GameObject combatCanvas;
+    [SerializeField]private GameObject visToSpawn;
     [SerializeField]private EnemyHealthBar enemyHealthScript;
     [SerializeField]private HealthLower healthLower;
     [SerializeField]private AttackInstantiate attackInstantiate;
     [SerializeField]private float damageIDo = 0;
     [SerializeField]private float healthIHeal = 0;
+    private bool attacked = false;
     public GameObject holdObject;
     public PlayerVariablesHeld holdScript;
     public int changeSJ = 0;
@@ -49,10 +51,11 @@ public class ChangeEmotions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (holdObject != null)
+        if (holdObject != null && !attacked)
         { //there should always be exactly 1 function in this condition that destroys the object, no more no less, and it should be at the end of the result.
             changeEnemyHealth();
             changePlayerHealth();
+            spawnVis();
             changeEmotionNumbers(); //make sure this happens last as this function destroys the object.
         }
     }
@@ -63,7 +66,7 @@ public class ChangeEmotions : MonoBehaviour
         holdScript.AngerLoveHeld += changeAL;
         holdScript.LonelyOverstimulatedHeld += changeLO;
         holdScript.FearConfidenceHeld += changeFC;
-        Destroy(gameObject);
+        attacked = true;
     }
     
     private void changeEnemyHealth()
@@ -75,6 +78,16 @@ public class ChangeEmotions : MonoBehaviour
     private void changePlayerHealth()
     {
         healthLower.lowerHealthBy(healthIHeal); //this calls a function which changes the player's health bar
+    }
+
+    private void spawnVis()
+    {
+        if (visToSpawn != null)
+        {
+            Debug.Log("Hi");
+            var visSpawned = Instantiate(visToSpawn, new Vector3(1920 / 2,1080 / 2,0), Quaternion.identity);
+            visSpawned.transform.parent = combatCanvas.transform;
+        }
     }
 
 }
