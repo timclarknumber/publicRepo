@@ -23,6 +23,7 @@ public class EnemyDoesAttack : MonoBehaviour
     void Update()
     {
         attackPlayer();
+        Destroy(gameObject);
     }
 
     private void attackPlayer()
@@ -32,7 +33,6 @@ public class EnemyDoesAttack : MonoBehaviour
             playerHealthBar = GameObject.Find("PlayerHealthBar");
             healthLowerScript = playerHealthBar.GetComponent<HealthLower>();
             healthLowerScript.lowerHealthBy(damageDealt);
-            Destroy(gameObject);
         }
     }
 }

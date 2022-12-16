@@ -13,6 +13,8 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField]private WinScript winScript;
     [SerializeField]private float healthActual;
     [SerializeField]private float barLowerByRate;
+    
+    private float swapBuffer = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,13 @@ public class EnemyHealthBar : MonoBehaviour
         thisTransform.localScale = new Vector3(healthActual * barLowerByRate, thisTransform.localScale.y, thisTransform.localScale.z); //change the size of the object according to health
         //this change is relative to whatever the health was when the combat scene was first loaded
         if (healthActual <= 0) 
-        {//if im dead
-            iDied(); //then that means i died
+        {
+            swapBuffer -= Time.deltaTime;
+        }
+
+        if (swapBuffer <= 0)
+        {
+            iDied();
         }
     }
 

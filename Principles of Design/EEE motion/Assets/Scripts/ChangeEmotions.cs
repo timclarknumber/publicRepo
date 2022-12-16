@@ -29,7 +29,7 @@ public class ChangeEmotions : MonoBehaviour
             playerHealthBar = GameObject.Find("PlayerHealthBar");
             healthLower = playerHealthBar.GetComponent<HealthLower>(); 
         }
-        if (GameObject.Find("CombatCanvas") != null) //is there a player?
+        if (GameObject.Find("CombatCanvas") != null) //is there a combat canvas?
         {
             combatCanvas = GameObject.Find("CombatCanvas");
             attackInstantiate = combatCanvas.GetComponent<AttackInstantiate>(); 
@@ -72,7 +72,6 @@ public class ChangeEmotions : MonoBehaviour
     private void changeEnemyHealth()
     {
         enemyHealthScript.lowerEnemyHealthBar(damageIDo);
-        attackInstantiate.spawnEnemyAttackL1();
     }
 
     private void changePlayerHealth()

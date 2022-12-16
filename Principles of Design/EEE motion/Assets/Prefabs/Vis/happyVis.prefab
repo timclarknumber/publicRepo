@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3562527055787024220}
   - component: {fileID: 3562527055787024222}
   - component: {fileID: -2291655190658856381}
+  - component: {fileID: -8476712838846096172}
   m_Layer: 5
   m_Name: happyVis
   m_TagString: Untagged
@@ -107,3 +108,17 @@ MonoBehaviour:
   thisTransform: {fileID: 3562527055787024221}
   maxGrow: 2
   growRate: 1.5
+--- !u!114 &-8476712838846096172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562527055787024218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed7ae31befc2d64aa506e0ea696bb89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatCanvas: {fileID: 0}
+  attackInstantiate: {fileID: 0}
