@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3562527055787024223}
   - component: {fileID: 3562527055787024220}
   - component: {fileID: 3562527055787024222}
+  - component: {fileID: -2291655190658856381}
   m_Layer: 5
   m_Name: happyVis
   m_TagString: Untagged
@@ -84,10 +85,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3562527055787024218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 766aada80ac09be408f8d94da893c848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisTransform: {fileID: 3562527055787024221}
   shrinkrate: 0.001
+--- !u!114 &-2291655190658856381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562527055787024218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a524de74597eee0459468f46ae2433be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisTransform: {fileID: 3562527055787024221}
+  maxGrow: 2
+  growRate: 1.5

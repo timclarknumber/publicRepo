@@ -18,7 +18,6 @@ public class BurnAll : MonoBehaviour
     [SerializeField]private GameObject PlayerAttackKey8;
     [SerializeField]private GameObject PlayerAttackKey9;
     [SerializeField]private GameObject PlayerAttackKey10;
-    }
     void Update()
     {
         if (GameObject.Find("PlayerVariableHolder") != null) //if there is a player variable holder
@@ -97,13 +96,13 @@ public class BurnAll : MonoBehaviour
             Destroy(PlayerAttackKey8);
         }
         
-        if (GameObject.Find("PlayerAttackKey9(Clone)") != null)
+        if (GameObject.Find("PlayerAttackKey9(Clone)") != null) 
         {
             PlayerAttackKey9 = GameObject.Find("PlayerAttackKey9(Clone)"); //burn it 
             Destroy(PlayerAttackKey9);
         }
         
-        if (GameObject.Find("PlayerAttackKey10(Clone)") != null)
+        if (GameObject.Find("PlayerAttackKey10(Clone)") != null) 
         {
             PlayerAttackKey10 = GameObject.Find("PlayerAttackKey10(Clone)"); //burn it 
             Destroy(PlayerAttackKey10);
