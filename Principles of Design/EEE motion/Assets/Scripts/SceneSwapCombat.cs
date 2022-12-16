@@ -19,7 +19,7 @@ public class SceneSwapCombat : MonoBehaviour
         if (fromCombatToOverworld) { //this conditional makes sure to only check for the health bar if this is the combat scene, if not, don't check for it because it doesn't exist.
             if(healthTransform.localScale.x < 0.05 ) //this should NEVER result in a null reference exception because of the previous if
             {
-                SceneManager.LoadScene("Overworld");
+                SceneManager.LoadScene("GameOver");
             }
         }
     }
