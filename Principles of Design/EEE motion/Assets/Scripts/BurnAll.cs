@@ -7,6 +7,7 @@ public class BurnAll : MonoBehaviour
     [SerializeField]private GameObject playerVariableHolder;
     [SerializeField]private GameObject enemyInfo;
     [SerializeField]private GameObject ComeToMe;
+    [SerializeField]private GameObject backgroundMusic;
     [SerializeField]private GameObject WinStateCounter;
     [SerializeField]private GameObject PlayerAttackKey1;
     [SerializeField]private GameObject PlayerAttackKey2;
@@ -47,7 +48,14 @@ public class BurnAll : MonoBehaviour
             WinStateCounter = GameObject.Find("WinStateCounter"); //burn it 
             Destroy(WinStateCounter);
         }
+
+        if (GameObject.Find("BackgroundMusic") != null) //if there is a win state counter 
+        {
+            backgroundMusic = GameObject.Find("BackgroundMusic"); //burn it 
+            Destroy(backgroundMusic);
+        }
         
+
         if (GameObject.Find("PlayerAttackKey1(Clone)") != null) //if there is a player attack key clone
         {
             PlayerAttackKey1 = GameObject.Find("PlayerAttackKey1(Clone)"); //burn it 

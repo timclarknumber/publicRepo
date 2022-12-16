@@ -11,14 +11,13 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]private Transform thisTransform;
     [SerializeField]private SceneSwapCombat sceneScript;
     [SerializeField]private EnemyInfoHolder enemyInfoHeld;
-    [SerializeField]private WinScript winScript;
     [SerializeField]private GameObject sceneBruh;
     [SerializeField]private GameObject ComeToMe;
     [SerializeField]private GameObject ComeToMePrefab;
     [SerializeField]private GameObject variableHolder;
-    [SerializeField]private GameObject winStateCounter;
     [SerializeField]private string myName;
 
+    private float IDontAppearAfter = 1000;
     private float playerX;
     private float playerY;
     private float thisX;
@@ -28,49 +27,53 @@ public class EnemyScript : MonoBehaviour
     {
         thisX = thisTransform.position.x;
         thisY = thisTransform.position.y;
-        if (GameObject.Find("EnemyInfoHolder") != null)
-        {
-            variableHolder = GameObject.Find("EnemyInfoHolder");
-            enemyInfoHeld = variableHolder.GetComponent<EnemyInfoHolder>();
-        }
-
-        if (GameObject.Find("winStateCounter") != null)
-        {
-            winStateCounter = GameObject.Find("winStateCounter");
-            winScript = winStateCounter.GetComponent<WinScript>();
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerX = playerTransform.position.x; //keep track of where the player is
-        playerY = playerTransform.position.y;
-        if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
+        if (GameObject.Find("EnemyInfoHolder") != null)
         {
-            enemyInfoHeld.enemyHealth = myHealth;
-            enemyInfoHeld.enemyDamage = myDamage;
-            enemyInfoHeld.enemySprite = mySprite;
-            sceneScript.GoToCombat(myName); //send the user to the combat scene
-            if (GameObject.Find("ComeToMe(Clone)") == null) //if there isnt a come to me yet
-            {
-                Instantiate(ComeToMePrefab, thisTransform.position, Quaternion.identity); //make a come to me
-            }
+            variableHolder = GameObject.Find("EnemyInfoHolder");
+            enemyInfoHeld = variableHolder.GetComponent<EnemyInfoHolder>();
         }
-        if (GameObject.Find("ComeToMe") != null) //if there is a come to me
+        
+        if (GameObject.Find("SceneSwapManager") != null)
         {
-            ComeToMe = GameObject.Find("ComeToMe"); //do stuff with the come to me
-            if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
-            { //^ if the come to me is touching me
-                Destroy(gameObject); //damn...
-            }
+            sceneScript = GameObject.Find("SceneSwapManager").GetComponent<SceneSwapCombat>();
         }
-        if (GameObject.Find("ComeToMe(Clone)") != null) //`` but with clone because its a prefab so yeah.
+
+        if (GameObject.Find("Player") != null)
         {
-            ComeToMe = GameObject.Find("ComeToMe(Clone)");
-            if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
+            playerTransform = GameObject.Find("Player").transform;
+            playerX = playerTransform.position.x; //keep track of where the player is
+            playerY = playerTransform.position.y;
+            if(playerX < thisX + 0.5 && playerX > thisX - 0.5 && playerY < thisY + 0.5 && playerY > thisY - 0.5) //if the player is touching me
             {
-                Destroy(gameObject);
+                enemyInfoHeld.enemyHealth = myHealth;
+                enemyInfoHeld.enemyDamage = myDamage;
+                enemyInfoHeld.enemySprite = mySprite;
+                sceneScript.GoToCombat(myName); //send the user to the combat scene
+                if (GameObject.Find("ComeToMe(Clone)") == null) //if there isnt a come to me yet
+                {
+                    Instantiate(ComeToMePrefab, thisTransform.position, Quaternion.identity); //make a come to me
+                }
+            }
+            if (GameObject.Find("ComeToMe") != null) //if there is a come to me
+            {
+                ComeToMe = GameObject.Find("ComeToMe"); //do stuff with the come to me
+                if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
+                { //^ if the come to me is touching me
+                    Destroy(gameObject); //damn...
+                }
+            }
+            if (GameObject.Find("ComeToMe(Clone)") != null) //`` but with clone because its a prefab so yeah.
+            {
+                ComeToMe = GameObject.Find("ComeToMe(Clone)");
+                if (ComeToMe.transform.position.x < thisX + 0.5 && ComeToMe.transform.position.x > thisX - 0.5 && ComeToMe.transform.position.y < thisY + 0.5 && ComeToMe.transform.position.y > thisY - 0.5)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
