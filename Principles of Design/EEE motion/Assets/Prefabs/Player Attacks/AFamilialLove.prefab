@@ -52,7 +52,7 @@ MonoBehaviour:
   healthLower: {fileID: 0}
   attackInstantiate: {fileID: 0}
   damageIDo: 0
-  healthIHeal: 16
+  healthIHeal: 40
   holdObject: {fileID: 0}
   holdScript: {fileID: 0}
   changeSJ: 1

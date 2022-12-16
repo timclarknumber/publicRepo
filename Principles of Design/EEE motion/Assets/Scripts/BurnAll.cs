@@ -20,11 +20,11 @@ public class BurnAll : MonoBehaviour
     [SerializeField]private GameObject PlayerAttackKey10;
     void Update()
     {
-        if (GameObject.Find("PlayerVariableHolder") != null) //if there is a player variable holder
-        {
-            playerVariableHolder = GameObject.Find("PlayerVariableHolder"); //burn it 
-            Destroy(playerVariableHolder);
-        }
+        //if (GameObject.Find("PlayerVariableHolder") != null) //if there is a player variable holder
+        //{
+        //    playerVariableHolder = GameObject.Find("PlayerVariableHolder"); //burn it 
+        //    Destroy(playerVariableHolder);
+        //}
         
         if (GameObject.Find("EnemyInfoHolder") != null) //if there is an enemy info holder
         {

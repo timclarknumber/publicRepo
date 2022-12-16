@@ -518,11 +518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh
@@ -14235,11 +14235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 5
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 24
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh
@@ -14514,11 +14514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 12
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 40
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh
@@ -17838,11 +17838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 6
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 30
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh
@@ -18308,11 +18308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 4
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 18
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh
@@ -18718,11 +18718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myDamage
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: myHealth
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1454498371935871757, guid: a4ca3ab13ce6e874387c1c5c85e2730a, type: 3}
       propertyPath: sceneBruh

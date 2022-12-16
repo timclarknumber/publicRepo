@@ -51,7 +51,7 @@ MonoBehaviour:
   enemyHealthScript: {fileID: 0}
   healthLower: {fileID: 0}
   attackInstantiate: {fileID: 0}
-  damageIDo: 20
+  damageIDo: 10
   healthIHeal: -4
   holdObject: {fileID: 0}
   holdScript: {fileID: 0}
