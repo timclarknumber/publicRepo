@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2524978005277833449}
   - component: {fileID: 2524978005277833448}
   - component: {fileID: 2524978005277833451}
+  - component: {fileID: 3070335103449715506}
   m_Layer: 0
   m_Name: EEP1B2
   m_TagString: Untagged
@@ -234,6 +235,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3070335103449715506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524978005277833445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed015abe23a21d54299206eaab743f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooSJ: 3
+  tooAL: 3
+  tooLO: 3
+  tooFC: 3
+  emotionScript: {fileID: 0}
+  player: {fileID: 0}
+  thisButton: {fileID: 2524978005277833451}
 --- !u!1 &2524978005282693516
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +403,7 @@ GameObject:
   - component: {fileID: 2524978005911694313}
   - component: {fileID: 2524978005911694312}
   - component: {fileID: 2524978005911694315}
+  - component: {fileID: 8076392743057515645}
   m_Layer: 0
   m_Name: EEP1B1
   m_TagString: Untagged
@@ -529,6 +550,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8076392743057515645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2524978005911694309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed015abe23a21d54299206eaab743f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooSJ: 3
+  tooAL: 3
+  tooLO: 3
+  tooFC: 3
+  emotionScript: {fileID: 0}
+  player: {fileID: 0}
+  thisButton: {fileID: 2524978005911694315}
 --- !u!1 &2524978006244700982
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,3 +778,4 @@ MonoBehaviour:
   thisTransform: {fileID: 2524978006648192829}
   AttackKey1: {fileID: 6204731096007144557, guid: 8dd216b5412f24240a123991fbae7c46, type: 3}
   AttackKey2: {fileID: 6204731096007144557, guid: bd1bbbdc673adb645aba9c20d222af64, type: 3}
+  PlayerMovement: {fileID: 0}
