@@ -10,6 +10,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField]private float moveBufferTime = 1;
     [SerializeField]private SceneSwapCombat sceneScript;
     [SerializeField]private PauseScript pauseScript;
+    
+    public bool lookingAtMenu = false;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class playerMovement : MonoBehaviour
         {
             moveBuffer -= Time.deltaTime;
         }
-        if (moveBuffer <= 0 && !paused) 
+        if (moveBuffer <= 0 && !paused && !lookingAtMenu) 
         {
             if (Input.GetKeyDown(KeyCode.W)) {
                 transform.position = new Vector3 (transform.position.x, transform.position.y + 1, transform.position.z);
