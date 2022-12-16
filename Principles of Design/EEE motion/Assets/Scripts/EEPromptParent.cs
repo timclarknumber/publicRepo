@@ -43,6 +43,6 @@ public class EEPromptParent : MonoBehaviour
     
     void OnDestroy()
     {
-            PlayerMovement.lookingAtMenu = false;
+        PlayerMovement.lookingAtMenu = false;
     }
 }
