@@ -24,10 +24,10 @@ public class TutorialScript : MonoBehaviour
             tutorialTextScript.changeTextTo("Welcome to EEMotion! WASD to move.");
         } else if (playerTransform.position.x > 5 && playerTransform.position.x < 10)
         {
-            tutorialTextScript.changeTextTo("On the map, you will see tiles that look like this. Step on them to unlock abilities.");
+            tutorialTextScript.changeTextTo("On the map, you will see green tiles, like this. Step on them to unlock abilities.");
         } else if (playerTransform.position.x > 10 && playerTransform.position.x < 15)
         {
-            tutorialTextScript.changeTextTo("Abilities to do what? Fight! How? Step on tiles that look like this to fight enemies.");
+            tutorialTextScript.changeTextTo("Abilities to do what? Fight! How? Step on red tiles like this one to fight enemies.");
         } else if (playerTransform.position.x > 15 && playerTransform.position.x < 20)
         {
             tutorialTextScript.changeTextTo("In combat, your abilities will affect the emotional states you see at the bottom of the screen.");
