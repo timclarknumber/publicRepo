@@ -7,8 +7,10 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField]private RectTransform thisTransform;
     [SerializeField]private GameObject variableHolder;
     [SerializeField]private GameObject sceneSwapper;
+    [SerializeField]private GameObject winStateCounter;
     [SerializeField]private EnemyInfoHolder enemyInfoHeld;
     [SerializeField]private SceneSwapCombat sceneScript;
+    [SerializeField]private WinScript winScript;
     [SerializeField]private float healthActual;
     [SerializeField]private float barLowerByRate;
     // Start is called before the first frame update
@@ -20,6 +22,11 @@ public class EnemyHealthBar : MonoBehaviour
         sceneScript = sceneSwapper.GetComponent<SceneSwapCombat>();
         healthActual = enemyInfoHeld.enemyHealth;
         barLowerByRate = thisTransform.localScale.x / healthActual;
+        if (GameObject.Find("WinStateCounter") != null)
+        {
+            winStateCounter = GameObject.Find("WinStateCounter");
+            winScript = winStateCounter.GetComponent<WinScript>();
+        }
     }
 
     // Update is called once per frame
@@ -40,6 +47,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void iDied()
     {
+        winScript.enemiesNeededDown();
         sceneScript.GoToOverworld(); //go to the overworld when the enemy dies
     }
 }
