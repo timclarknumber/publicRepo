@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PizzaMakerStats : MonoBehaviour
-{
+{ //this script holds the functions called by the pizza making buttons and makes sure more pizzas cannot be baked than the oven limit
     [SerializeField] private SceneScopeStats statHolder;
     [SerializeField] private bool doughReady = false;
     [SerializeField] private bool sauceReady = false;
     [SerializeField] private bool cheeseReady = false;
-    
 
     public void readyDough()
     {
@@ -35,7 +34,11 @@ public class PizzaMakerStats : MonoBehaviour
     {
         if (doughReady && sauceReady && cheeseReady)
         {
-            StartCoroutine(BakeTime());
+            if (statHolder.pizzasInOvenNow < 2)
+            {
+                StartCoroutine(BakeTime());
+                statHolder.pizzasInOvenNow++;
+            }
             doughReady = false;
             sauceReady = false;
             cheeseReady = false;
@@ -46,5 +49,6 @@ public class PizzaMakerStats : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         statHolder.readyPizzas++;
+        statHolder.pizzasInOvenNow--;
     }
 }

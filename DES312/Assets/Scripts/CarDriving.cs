@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarDriving : MonoBehaviour
-{
+{//this script handles the movement of the player in their car
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
     private float adjustedSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
     }
     // Update is called once per frame
     void FixedUpdate()

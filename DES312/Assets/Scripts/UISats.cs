@@ -6,17 +6,17 @@ using TMPro;
 
 
 public class UISats : MonoBehaviour
-{
-    [SerializeField] private TMP_Text readyPizza; 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{//this script just updates all the UI objects that display data using stats from statholder
+    [SerializeField] private TMP_Text readyPizzaTxt; 
+    [SerializeField] private TMP_Text heldPizzaTxt; 
+    [SerializeField] private TMP_Text ovenPizzaTxt; 
+    [SerializeField] private SceneScopeStats statHolder;
 
     // Update is called once per frame
     void Update()
     {
-        
+        readyPizzaTxt.text = "Pizzas Ready: " + statHolder.readyPizzas.ToString();
+        heldPizzaTxt.text = "Pizzas Held: " + statHolder.playerHeldPizzas.ToString();
+        ovenPizzaTxt.text = "Pizzas in Oven: " + statHolder.pizzasInOvenNow.ToString();
     }
 }
