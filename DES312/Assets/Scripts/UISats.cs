@@ -10,6 +10,8 @@ public class UISats : MonoBehaviour
     [SerializeField] private TMP_Text readyPizzaTxt; 
     [SerializeField] private TMP_Text heldPizzaTxt; 
     [SerializeField] private TMP_Text ovenPizzaTxt; 
+    [SerializeField] private TMP_Text moneyTxt; 
+    [SerializeField] private TMP_Text timerTxt; 
     [SerializeField] private SceneScopeStats statHolder;
 
     // Update is called once per frame
@@ -18,5 +20,7 @@ public class UISats : MonoBehaviour
         readyPizzaTxt.text = "Pizzas Ready: " + statHolder.readyPizzas.ToString();
         heldPizzaTxt.text = "Pizzas Held: " + statHolder.playerHeldPizzas.ToString();
         ovenPizzaTxt.text = "Pizzas in Oven: " + statHolder.pizzasInOvenNow.ToString();
+        moneyTxt.text = "Money: $" + statHolder.money.ToString();
+        timerTxt.text = "Time: " + Mathf.Round(statHolder.timer).ToString();
     }
 }
