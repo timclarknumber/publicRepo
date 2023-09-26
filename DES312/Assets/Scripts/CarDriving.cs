@@ -7,7 +7,7 @@ public class CarDriving : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
     private float adjustedSpeed;
-    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
