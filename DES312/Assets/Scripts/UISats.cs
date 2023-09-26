@@ -13,8 +13,6 @@ public class UISats : MonoBehaviour
     [SerializeField] private TMP_Text moneyTxt; 
     [SerializeField] private TMP_Text timerTxt; 
     [SerializeField] private SceneScopeStats statHolder;
-
-    // Update is called once per frame
     void Update()
     {
         readyPizzaTxt.text = "Pizzas Ready: " + statHolder.readyPizzas.ToString();

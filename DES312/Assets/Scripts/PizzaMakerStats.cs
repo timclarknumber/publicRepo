@@ -47,7 +47,7 @@ public class PizzaMakerStats : MonoBehaviour
     
     IEnumerator BakeTime()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         statHolder.readyPizzas++;
         statHolder.pizzasInOvenNow--;
     }
