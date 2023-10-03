@@ -55,4 +55,16 @@ public class CarDriving : MonoBehaviour
         Telemetry.playerYMeasured = this.transform.position.y;
         
     }
+
+    
+    private void OnTriggerEnter(Collider Highway)
+    {
+        speed = 850;
+    }
+    
+    private void OnTriggerExit(Collider Highway)
+    {
+        speed = 500;
+    }
+    
 }

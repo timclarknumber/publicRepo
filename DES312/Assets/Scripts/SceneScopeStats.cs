@@ -16,6 +16,7 @@ public class SceneScopeStats : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            Telemetry.writeToFile("Total Money: $" + money.ToString());
             SceneSwapper.MoveToNextScene();
         }
     }

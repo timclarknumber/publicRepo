@@ -6,7 +6,7 @@ using System.IO;
 public class Telemetry : MonoBehaviour
 {    
     //where the file being written to is
-    public static string path = "Assets/Resources/test.txt";
+    public static string path = "Assets/Resources/telemetry.csv";
     public static Telemetry singleton;
     public static float playerXMeasured = 0;
     public static float playerYMeasured = 0;
