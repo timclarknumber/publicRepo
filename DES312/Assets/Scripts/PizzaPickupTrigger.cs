@@ -26,6 +26,7 @@ public class PizzaPickupTrigger : MonoBehaviour
         {
             statHolder.playerHeldPizzas++;
             statHolder.readyPizzas--;
+            Telemetry.beginDeliverySpeedTest();
         }
     }
 }

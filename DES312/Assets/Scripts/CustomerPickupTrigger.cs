@@ -36,6 +36,7 @@ public class CustomerPickupTrigger : MonoBehaviour
             statHolder.playerHeldPizzas--;
             neededPizzas--;
             statHolder.money += 10;
+            Telemetry.endDeliverySpeedTest();
         }
     }
 }

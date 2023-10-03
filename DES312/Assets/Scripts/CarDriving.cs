@@ -50,5 +50,9 @@ public class CarDriving : MonoBehaviour
                 rb.velocity = new Vector3(0,0,0);
             }
         }
+
+        Telemetry.playerXMeasured = this.transform.position.x;
+        Telemetry.playerYMeasured = this.transform.position.y;
+        
     }
 }

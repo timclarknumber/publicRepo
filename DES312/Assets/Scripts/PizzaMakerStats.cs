@@ -13,6 +13,7 @@ public class PizzaMakerStats : MonoBehaviour
     {
         if (!doughReady)
         {
+            Telemetry.beginPizzaPrepareTest();
             doughReady = true;
         }
     }
@@ -36,6 +37,7 @@ public class PizzaMakerStats : MonoBehaviour
         {
             if (statHolder.pizzasInOvenNow < 2)
             {
+                Telemetry.endPizzaPrepareTest();
                 StartCoroutine(BakeTime());
                 statHolder.pizzasInOvenNow++;
             }

@@ -14,5 +14,9 @@ public class SceneScopeStats : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            SceneSwapper.MoveToNextScene();
+        }
     }
 }
