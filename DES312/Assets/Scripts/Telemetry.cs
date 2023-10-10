@@ -12,10 +12,13 @@ public class Telemetry : MonoBehaviour
     public static float playerYMeasured = 0;
     private bool deliverySpeedTestOngoing = false;
     private bool pizzaPrepareTestOngoing = false;
+    private bool highwayRideOngoing = false;
     private float deliverySpeed = 0;
     private float pizzaPrepareSpeed = 0;
+    private float highwayRideTime = 0;
     public List<float> deliveries = new List<float>();
     public List<float> pizzasMadeTotal = new List<float>();
+    public List<float> highwayRides = new List<float>();
     void Awake()
     {
         singleton = this; //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
@@ -39,6 +42,10 @@ public class Telemetry : MonoBehaviour
         if (pizzaPrepareTestOngoing)
         {
             pizzaPrepareSpeed += Time.deltaTime;
+        }
+        if (highwayRideOngoing)
+        {
+            highwayRideTime += Time.deltaTime;
         }
         //Debug.Log("Telemetry player x is:" + playerXMeasured.ToString());
     }
@@ -89,6 +96,22 @@ public class Telemetry : MonoBehaviour
         singleton.pizzaPrepareTestOngoing = false;
         singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
         string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
+        Telemetry.writeToFile(message);
+    }
+    public static void enterHighway()
+    {
+        singleton.highwayRideTime = 0;
+        singleton.highwayRideOngoing = true;
+    }
+    public static void exitHighway()
+    {
+        //spooky singleton magic
+        singleton.highwayRideOngoing = false;
+        if (singleton.highwayRideTime > 0.7) //excluding times they hop on and then immediately back off
+        {
+            singleton.highwayRides.Add(singleton.highwayRideTime);
+        }
+        string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
         Telemetry.writeToFile(message);
     }
 

@@ -62,12 +62,17 @@ public class CarDriving : MonoBehaviour
         if (Highway.CompareTag("Highway"))
         {
             speed = 600;
+            Telemetry.enterHighway();
         }
     }
     
     private void OnTriggerExit(Collider Highway)
     {
-        speed = 300;
+        if (Highway.CompareTag("Highway"))
+        {
+            speed = 300;
+            Telemetry.exitHighway();
+        }
     }
     
 }
