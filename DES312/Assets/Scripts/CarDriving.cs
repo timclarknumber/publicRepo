@@ -58,13 +58,13 @@ public class CarDriving : MonoBehaviour
 
     
     private void OnTriggerEnter(Collider Highway)
-    {
+    { 
         speed = 850;
     }
     
     private void OnTriggerExit(Collider Highway)
     {
-        speed = 500;
+        speed = 350;
     }
     
 }
