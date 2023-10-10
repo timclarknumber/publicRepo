@@ -58,13 +58,16 @@ public class CarDriving : MonoBehaviour
 
     
     private void OnTriggerEnter(Collider Highway)
-    { 
-        speed = 850;
+    {
+        if (Highway.CompareTag("Highway"))
+        {
+            speed = 600;
+        }
     }
     
     private void OnTriggerExit(Collider Highway)
     {
-        speed = 350;
+        speed = 300;
     }
     
 }

@@ -35,7 +35,7 @@ public class PizzaMakerStats : MonoBehaviour
     {
         if (doughReady && sauceReady && cheeseReady)
         {
-            if (statHolder.pizzasInOvenNow < 2)
+            if (statHolder.pizzasInOvenNow < 2 && statHolder.readyPizzas < 2)
             {
                 Telemetry.endPizzaPrepareTest();
                 StartCoroutine(BakeTime());
