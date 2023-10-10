@@ -12,5 +12,6 @@ public class SceneSwapper : MonoBehaviour
         Telemetry.writeToFile("Average of all Pizza Preparing Times: " + Telemetry.averageOfAll(Telemetry.singleton.pizzasMadeTotal).ToString());
         Telemetry.writeToFile("Average of all Highway Rides: " + Telemetry.averageOfAll(Telemetry.singleton.highwayRides).ToString());
         SceneManager.LoadScene("NoTime");
+        //IMPORTANT: if you are looking for the money telemetry function call, check sceneScopeStats
     }
 }
