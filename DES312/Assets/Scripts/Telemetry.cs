@@ -30,7 +30,7 @@ public class Telemetry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        CloudSaveTest.ListPlayerFiles();
     }
 
     // Update is called once per frame
