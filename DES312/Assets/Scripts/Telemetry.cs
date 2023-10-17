@@ -21,6 +21,7 @@ public class Telemetry : MonoBehaviour
     public List<float> highwayRides = new List<float>();
     void Awake()
     {
+        CloudSaveTest.SaveIntialize();
         singleton = this; //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
         deleteTelemetry(); //get rid of the previous telemetry txt.
         //Important, because of this, save telemetry txt in between sessions or data is lost.
@@ -62,6 +63,7 @@ public class Telemetry : MonoBehaviour
         writer.WriteLine(Input);
         writer.Close();
         UnityEditor.AssetDatabase.Refresh();
+        CloudSaveTest.saveData();
     }
 
     public static void deleteTelemetry()
