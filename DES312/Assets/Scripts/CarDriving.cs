@@ -6,6 +6,7 @@ public class CarDriving : MonoBehaviour
 {//this script handles the movement of the player in their car
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
+    [SerializeField] private Transform model;
     private float adjustedSpeed;
     
     // Update is called once per frame
@@ -17,34 +18,42 @@ public class CarDriving : MonoBehaviour
             if (Input.GetKey("w") && Input.GetKey("a"))
             {
                 rb.velocity = new Vector3(-adjustedSpeed,adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(135, 90, -90);
             } 
             else if (Input.GetKey("w") && Input.GetKey("d"))
             {
                 rb.velocity = new Vector3(adjustedSpeed,adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(225, 90, -90);
             } 
             else if (Input.GetKey("s") && Input.GetKey("a"))
             {
                 rb.velocity = new Vector3(-adjustedSpeed,-adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(45, 90, -90);
             } 
             else if (Input.GetKey("s") && Input.GetKey("d"))
             {
                 rb.velocity = new Vector3(adjustedSpeed,-adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(315, 90, -90);
             } 
             else if (Input.GetKey("w"))
             {
                 rb.velocity = new Vector3(0,adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(180, 90, -90);
             } 
             else if (Input.GetKey("a"))
             {
                 rb.velocity = new Vector3(-adjustedSpeed,0,0);
+                model.transform.eulerAngles = new Vector3(90, 90, -90);
             }
             else if (Input.GetKey("d"))
             {
                 rb.velocity = new Vector3(adjustedSpeed,0,0);
+                model.transform.eulerAngles = new Vector3(270, 90, -90);
             }
             else if (Input.GetKey("s"))
             {
                 rb.velocity = new Vector3(0,-adjustedSpeed,0);
+                model.transform.eulerAngles = new Vector3(0, 90, -90);
             } else 
             {
                 rb.velocity = new Vector3(0,0,0);
