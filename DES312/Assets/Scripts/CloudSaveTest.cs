@@ -13,6 +13,8 @@ public static class CloudSaveTest
     {
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        ListPlayerFiles();
     }
 
     public async static void saveData()
@@ -20,11 +22,14 @@ public static class CloudSaveTest
         //Stream fileStream await CloudSaveService.Instance.Files.Player.LoadStreamAsync("fileName.csv");
 
         byte[] file = System.IO.File.ReadAllBytes("Assets/Resources/telemetry.csv");
-        await CloudSaveService.Instance.Files.Player.SaveAsync("hiya", file,null);
+        //SystemInfo.deviceName
+        string key = SystemInfo.deviceName;
+        await CloudSaveService.Instance.Files.Player.SaveAsync(key, file,null);
+        
         //DICTIONARY METHOD
-        //var listOf = new List<string>();
-        //listOf.Add("thing 1");
-        //listOf.Add("bing 2");
+        var listOf = new List<string>();
+        listOf.Add("thing 1");
+        listOf.Add("bing 2");
         Debug.Log("HERE WE GO");
         //var data = new Dictionary<string, object>{ { "yay", listOf } };
         //await CloudSaveService.Instance.Data.ForceSaveAsync(data);
@@ -38,8 +43,21 @@ public static class CloudSaveTest
 
     public async static void ListPlayerFiles()
     {
-        //List<string> files = await CloudSaveService.Instance.Files.Player.ListAllAsync();
+        #if UNITY_EDITOR
+        List<Unity.Services.CloudSave.Models.FileItem> files = await CloudSaveService.Instance.Files.Player.ListAllAsync();
 
+string key = "";
+        foreach(Unity.Services.CloudSave.Models.FileItem f in files){
+                Debug.Log(f.Key);
+                key = f.Key; 
+                
+                var task = await CloudSaveService.Instance.Files.Player.LoadBytesAsync(key);
+                System.IO.File.WriteAllBytes("Assets/Resources/" + key + ".csv", task);
+        }
+
+        #endif
+        
+       
         //for (int i = 0; i < files.Count; i++)
         //{
             //Debug.Log(files[i]);
