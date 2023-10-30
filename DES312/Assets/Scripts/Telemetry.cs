@@ -6,7 +6,7 @@ using System.IO;
 public class Telemetry : MonoBehaviour
 {    
     //where the file being written to is
-    public static string path = "Assets/Resources/telemetry.csv";
+    public static string path = Application.dataPath + "/telemetry.csv";
     public static Telemetry singleton;
     public static float playerXMeasured = 0;
     public static float playerYMeasured = 0;
@@ -57,20 +57,23 @@ public class Telemetry : MonoBehaviour
         {
             Input = "what";
         }
-        UnityEditor.AssetDatabase.Refresh();
+        //UnityEditor.AssetDatabase.Refresh();
         //method from: https://support.unity.com/hc/en-us/articles/115000341143-How-do-I-read-and-write-data-from-a-text-file-#:~:text=text%20property.&text=Another%20way%20to%20read%20and,as%20a%20TextAsset%20in%20Unity.
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(Input);
         writer.Close();
-        UnityEditor.AssetDatabase.Refresh();
+        //UnityEditor.AssetDatabase.Refresh();
         CloudSaveTest.saveData();
     }
 
     public static void deleteTelemetry()
     { //method from: https://discussions.unity.com/t/how-to-delete-a-file-using-application-datapath/163771
-        UnityEditor.AssetDatabase.Refresh();
-        File.Delete (path);
-        UnityEditor.AssetDatabase.Refresh();
+        //UnityEditor.AssetDatabase.Refresh();
+        if (path != null)
+        {
+            File.Delete (path);
+        }
+        //UnityEditor.AssetDatabase.Refresh();
     }
 
     public static void beginDeliverySpeedTest()

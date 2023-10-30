@@ -12,7 +12,9 @@ public static class CloudSaveTest
     public async static void SaveIntialize()
     {
         await UnityServices.InitializeAsync();
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        //await AuthenticationService.Instance.SignInAnonymouslyAsync(); //anonymous method
+        //await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync("exampleUsername", "examplePassword1!"); //username password method signup
+        await AuthenticationService.Instance.SignInWithUsernamePasswordAsync("exampleUsername", "examplePassword1!"); //uesrname password method sign in;
 
         ListPlayerFiles();
     }
@@ -21,7 +23,7 @@ public static class CloudSaveTest
     {
         //Stream fileStream await CloudSaveService.Instance.Files.Player.LoadStreamAsync("fileName.csv");
 
-        byte[] file = System.IO.File.ReadAllBytes("Assets/Resources/telemetry.csv");
+        byte[] file = System.IO.File.ReadAllBytes(Application.dataPath + "/telemetry.csv");
         //SystemInfo.deviceName
         string key = SystemInfo.deviceName;
         await CloudSaveService.Instance.Files.Player.SaveAsync(key, file,null);
@@ -46,7 +48,7 @@ public static class CloudSaveTest
         #if UNITY_EDITOR
         List<Unity.Services.CloudSave.Models.FileItem> files = await CloudSaveService.Instance.Files.Player.ListAllAsync();
 
-string key = "";
+        string key = "";
         foreach(Unity.Services.CloudSave.Models.FileItem f in files){
                 Debug.Log(f.Key);
                 key = f.Key; 
