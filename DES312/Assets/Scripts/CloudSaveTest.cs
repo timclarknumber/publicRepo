@@ -21,9 +21,10 @@ public static class CloudSaveTest
 
     public async static void saveData()
     {
+        //#if !UNITY_EDITOR
         //Stream fileStream await CloudSaveService.Instance.Files.Player.LoadStreamAsync("fileName.csv");
 
-        byte[] file = System.IO.File.ReadAllBytes(Application.dataPath + "/telemetry.csv");
+        byte[] file = System.IO.File.ReadAllBytes(Application.persistentDataPath + "/telemetry.csv");
         //SystemInfo.deviceName
         string key = SystemInfo.deviceName;
         await CloudSaveService.Instance.Files.Player.SaveAsync(key, file,null);
@@ -35,6 +36,7 @@ public static class CloudSaveTest
         Debug.Log("HERE WE GO");
         //var data = new Dictionary<string, object>{ { "yay", listOf } };
         //await CloudSaveService.Instance.Data.ForceSaveAsync(data);
+        //#endif
     }
 
     public async static void loadData()
@@ -54,7 +56,7 @@ public static class CloudSaveTest
                 key = f.Key; 
                 
                 var task = await CloudSaveService.Instance.Files.Player.LoadBytesAsync(key);
-                System.IO.File.WriteAllBytes("Assets/Resources/" + key + ".csv", task);
+                System.IO.File.WriteAllBytes(key + ".csv", task);
         }
 
         #endif
