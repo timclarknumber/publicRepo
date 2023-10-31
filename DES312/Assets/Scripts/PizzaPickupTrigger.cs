@@ -22,7 +22,7 @@ public class PizzaPickupTrigger : MonoBehaviour
 
     private void GivePizza()
     {
-        while(statHolder.readyPizzas > 0)
+        while(statHolder.readyPizzas > 0 && statHolder.playerHeldPizzas <= 2)
         {
             statHolder.playerHeldPizzas++;
             statHolder.readyPizzas--;

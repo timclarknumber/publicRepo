@@ -13,6 +13,7 @@ public class UISats : MonoBehaviour
     [SerializeField] private TMP_Text moneyTxt; 
     [SerializeField] private TMP_Text timerTxt; 
     [SerializeField] private TMP_Text ovenMaxTxt; 
+    [SerializeField] private TMP_Text heldMaxText; 
     [SerializeField] private TMP_Text readyMaxTxt; 
     [SerializeField] private SceneScopeStats statHolder;
     [SerializeField] private Color redColor;
@@ -30,6 +31,12 @@ public class UISats : MonoBehaviour
             ovenMaxTxt.color = redColor;
         } else {
             ovenMaxTxt.color = invisibleColor;
+        }
+        if (statHolder.playerHeldPizzas >= 3)
+        {
+            heldMaxText.color = redColor;
+        } else {
+            heldMaxText.color = invisibleColor;
         }
         if (statHolder.readyPizzas >= 2)
         {
