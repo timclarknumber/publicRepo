@@ -1102,7 +1102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.3, y: 19.9}
+  m_AnchoredPosition: {x: 3.3, y: 19.9}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &169875846
@@ -1245,6 +1245,7 @@ MonoBehaviour:
   pizzasInOvenNow: 0
   timer: 120
   car: {fileID: 1140543478}
+  inTutorial: 0
   wasted: {fileID: 5169905240673635725, guid: 6c055630eb93a5d4b866c87935a35cd3, type: 3}
   textParent: {fileID: 403068395}
 --- !u!4 &210502544
@@ -1561,7 +1562,7 @@ Transform:
   m_GameObject: {fileID: 294180511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.88, y: 3.9, z: 0.658}
+  m_LocalPosition: {x: 4.88, y: 3.9, z: 0.71}
   m_LocalScale: {x: 108.23875, y: 139.4334, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2155,7 +2156,7 @@ Transform:
   m_GameObject: {fileID: 409974180}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.05, y: 16.39, z: -0.45}
+  m_LocalPosition: {x: 3.0500002, y: 16.39, z: -0.45}
   m_LocalScale: {x: 36.94836, y: 12.486827, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2991,8 +2992,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Your car is orange. Pickup pizzas from the pizzeria (red box) and deliver
-    to the customers (blue).
+  m_text: Your car is blue. Pick up pizzas from the pizzeria (red box) and deliver
+    to the customers (Yellow).
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3122,7 +3123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.8500004, y: 16.09}
+  m_AnchoredPosition: {x: 2.8500004, y: 16.09}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &680927613
@@ -4501,6 +4502,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047252390}
   m_CullTransparentMesh: 1
+--- !u!1 &1057010354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1057010355}
+  - component: {fileID: 1057010358}
+  - component: {fileID: 1057010357}
+  - component: {fileID: 1057010356}
+  m_Layer: 0
+  m_Name: Wall (36)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1057010355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057010354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.18, y: 2.71, z: 0.665}
+  m_LocalScale: {x: 8.603143, y: 3.1372864, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591566589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1057010356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057010354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1057010357
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057010354}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b83c8a12c584e7d40930d364aba74110, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1057010358
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057010354}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1069789235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,8 +4635,8 @@ Transform:
   m_GameObject: {fileID: 1069789235}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 5.02, z: 0.22}
-  m_LocalScale: {x: 8.634872, y: 6.6352196, z: 0.14405915}
+  m_LocalPosition: {x: 4.3, y: 5.88, z: 0.22}
+  m_LocalScale: {x: 8.634872, y: 3.7579894, z: 0.14405915}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1591566589}
@@ -6309,6 +6415,7 @@ Transform:
   - {fileID: 1504350733}
   - {fileID: 2110418257}
   - {fileID: 1370001716}
+  - {fileID: 1057010355}
   - {fileID: 1942545746}
   - {fileID: 363215954}
   - {fileID: 1108203647}
@@ -6424,8 +6531,8 @@ Transform:
   m_GameObject: {fileID: 1592179117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: 4.45, z: 0}
-  m_LocalScale: {x: 7.999323, y: 4.851571, z: 0.98505}
+  m_LocalPosition: {x: 4.24, y: 5.78, z: 0}
+  m_LocalScale: {x: 7.999323, y: 2.7952328, z: 0.98505}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
