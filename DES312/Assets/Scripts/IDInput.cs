@@ -27,6 +27,7 @@ public class IDInput : MonoBehaviour
     {
         if (CloudSaveTest.key != "" && CloudSaveTest.key != null)
         {
+            CloudSaveTest.SaveIntialize();
             SceneManager.LoadScene("Tutorial2");
         }
     }
