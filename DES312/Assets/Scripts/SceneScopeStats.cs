@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SceneScopeStats : MonoBehaviour
 {//this script keeps track of player stats, also ticks down the timer
@@ -11,6 +12,7 @@ public class SceneScopeStats : MonoBehaviour
     public int pizzasInOvenNow = 0;
     public float timer;
     public GameObject car;
+    [SerializeField] private bool inTutorial = false;
     [SerializeField] private TMP_Text wasted;
     [SerializeField] private GameObject textParent;
     void Update()
@@ -30,6 +32,11 @@ public class SceneScopeStats : MonoBehaviour
             {
                 Instantiate(wasted, textParent.transform);
             }
+        }
+        if (money > 50 && inTutorial)
+        {
+            Telemetry.WriteTutorialTime();
+            SceneSwapper.ExitTutorial();
         }
     }
 }

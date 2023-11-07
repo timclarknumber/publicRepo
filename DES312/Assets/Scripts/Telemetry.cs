@@ -13,9 +13,11 @@ public class Telemetry : MonoBehaviour
     private bool deliverySpeedTestOngoing = false;
     private bool pizzaPrepareTestOngoing = false;
     private bool highwayRideOngoing = false;
+    private bool currentlyInTutorial = false;
     private float deliverySpeed = 0;
     private float pizzaPrepareSpeed = 0;
     private float highwayRideTime = 0;
+    private float timeInTutorial = 0;
     public List<float> deliveries = new List<float>();
     public List<float> pizzasMadeTotal = new List<float>();
     public List<float> highwayRides = new List<float>();
@@ -48,6 +50,10 @@ public class Telemetry : MonoBehaviour
         {
             highwayRideTime += Time.deltaTime;
         }
+        if (currentlyInTutorial)
+        {
+            timeInTutorial += Time.deltaTime;
+        }
         //Debug.Log("Telemetry player x is:" + playerXMeasured.ToString());
     }
 
@@ -78,49 +84,77 @@ public class Telemetry : MonoBehaviour
         }
         //UnityEditor.AssetDatabase.Refresh();
     }
+    public static void TutorialYN(bool YN)
+    {
+        singleton.currentlyInTutorial = YN;
+    }
+    public static void WriteTutorialTime()
+    {
+        writeToFile("Time in tutorial: " + singleton.timeInTutorial.ToString());
+    }
 
     public static void beginDeliverySpeedTest()
     {
-        //spooky singleton magic
-        singleton.deliverySpeed = 0;
-        singleton.deliverySpeedTestOngoing = true;
+        Debug.Log(singleton.currentlyInTutorial);
+        if (!singleton.currentlyInTutorial)
+        {
+            //spooky singleton magic
+            singleton.deliverySpeed = 0;
+            singleton.deliverySpeedTestOngoing = true;
+        }
     }
     public static void endDeliverySpeedTest()
     {
-        //spooky singleton magic
-        singleton.deliverySpeedTestOngoing = false;
-        singleton.deliveries.Add(singleton.deliverySpeed);
-        string message = "Delivery Time: " + singleton.deliverySpeed.ToString();
-        Telemetry.writeToFile(message);
+        if (!singleton.currentlyInTutorial)
+        {
+            //spooky singleton magic
+            singleton.deliverySpeedTestOngoing = false;
+            singleton.deliveries.Add(singleton.deliverySpeed);
+            string message = "Delivery Time: " + singleton.deliverySpeed.ToString();
+            Telemetry.writeToFile(message);
+        }
     }
     public static void beginPizzaPrepareTest()
     {
-        singleton.pizzaPrepareSpeed = 0;
-        singleton.pizzaPrepareTestOngoing = true;
+        if (!singleton.currentlyInTutorial)
+        { 
+            singleton.pizzaPrepareSpeed = 0;
+            singleton.pizzaPrepareTestOngoing = true;
+        }
     }
     public static void endPizzaPrepareTest()
     {
-        //spooky singleton magic
-        singleton.pizzaPrepareTestOngoing = false;
-        singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
-        string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
-        Telemetry.writeToFile(message);
+
+        if (!singleton.currentlyInTutorial)
+        {
+            //spooky singleton magic
+            singleton.pizzaPrepareTestOngoing = false;
+            singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
+            string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
+            Telemetry.writeToFile(message);
+        }
     }
     public static void enterHighway()
-    {
-        singleton.highwayRideTime = 0;
-        singleton.highwayRideOngoing = true;
+    {       
+        if (!singleton.currentlyInTutorial)
+        {
+            singleton.highwayRideTime = 0;
+            singleton.highwayRideOngoing = true;
+        }
     }
     public static void exitHighway()
     {
-        //spooky singleton magic
-        singleton.highwayRideOngoing = false;
-        if (singleton.highwayRideTime > 0.7) //excluding times they hop on and then immediately back off
+        if (!singleton.currentlyInTutorial)
         {
-            singleton.highwayRides.Add(singleton.highwayRideTime);
+            //spooky singleton magic
+            singleton.highwayRideOngoing = false;
+            if (singleton.highwayRideTime > 0.7) //excluding times they hop on and then immediately back off
+            {
+                singleton.highwayRides.Add(singleton.highwayRideTime);
+            }
+            string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
+            Telemetry.writeToFile(message);
         }
-        string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
-        Telemetry.writeToFile(message);
     }
 
     public static float averageOfAll(List<float> listToBeAveraged)

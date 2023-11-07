@@ -8,6 +8,7 @@ using System.IO;
 
 public static class CloudSaveTest
 {
+    public static string key = "";
     // Start is called before the first frame update
     public async static void SaveIntialize()
     {
@@ -26,13 +27,12 @@ public static class CloudSaveTest
 
         byte[] file = System.IO.File.ReadAllBytes(Application.persistentDataPath + "/telemetry.csv");
         //SystemInfo.deviceName
-        string key = SystemInfo.deviceName;
         await CloudSaveService.Instance.Files.Player.SaveAsync(key, file,null);
         
         //DICTIONARY METHOD
-        var listOf = new List<string>();
-        listOf.Add("thing 1");
-        listOf.Add("bing 2");
+        //var listOf = new List<string>();
+        //listOf.Add("thing 1");
+        //listOf.Add("bing 2");
         Debug.Log("HERE WE GO");
         //var data = new Dictionary<string, object>{ { "yay", listOf } };
         //await CloudSaveService.Instance.Data.ForceSaveAsync(data);
@@ -66,5 +66,10 @@ public static class CloudSaveTest
         //{
             //Debug.Log(files[i]);
         //}
+    }
+
+    public async static void setID(string localID)
+    {
+        key = localID;
     }
 }

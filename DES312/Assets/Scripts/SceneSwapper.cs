@@ -14,4 +14,8 @@ public class SceneSwapper : MonoBehaviour
         SceneManager.LoadScene("NoTime");
         //IMPORTANT: if you are looking for the money telemetry function call, check sceneScopeStats
     }
+    public static void ExitTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
