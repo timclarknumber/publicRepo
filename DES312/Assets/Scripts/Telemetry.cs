@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using Newtonsoft.Json.Converters;
 
 public class Telemetry : MonoBehaviour
 {    
@@ -18,6 +19,7 @@ public class Telemetry : MonoBehaviour
     private float pizzaPrepareSpeed = 0;
     private float highwayRideTime = 0;
     private float timeInTutorial = 0;
+    public List<float> levelMoneyTotals = new List<float>();
     public List<float> deliveries = new List<float>();
     public List<float> pizzasMadeTotal = new List<float>();
     public List<float> highwayRides = new List<float>();
@@ -53,6 +55,8 @@ public class Telemetry : MonoBehaviour
         {
             timeInTutorial += Time.deltaTime;
         }
+
+        Debug.Log(timeInTutorial);
         //Debug.Log("Telemetry player x is:" + playerXMeasured.ToString());
     }
 
@@ -94,7 +98,7 @@ public class Telemetry : MonoBehaviour
 
     public static void beginDeliverySpeedTest()
     {
-        Debug.Log(singleton.currentlyInTutorial);
+        //Debug.Log(singleton.currentlyInTutorial);
         if (!singleton.currentlyInTutorial)
         {
             //spooky singleton magic
@@ -152,6 +156,20 @@ public class Telemetry : MonoBehaviour
                 singleton.highwayRides.Add(singleton.highwayRideTime);
             }
             string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
+            Telemetry.writeToFile(message);
+        }
+    }
+
+    public static void levelMoneyTotal(float moneyToAdd)
+    {
+        singleton.levelMoneyTotals.Add(moneyToAdd);
+    }
+
+    public static void printAllLevelMoneyTotals()
+    {
+        for (int i = 0; i < singleton.levelMoneyTotals.Count + 1; i++)
+        {
+            string message = "Level " + i.ToString() + " money was: " + singleton.levelMoneyTotals[i].ToString();
             Telemetry.writeToFile(message);
         }
     }

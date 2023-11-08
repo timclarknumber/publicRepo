@@ -1242,6 +1242,7 @@ MonoBehaviour:
   money: 0
   pizzasInOvenNow: 0
   timer: 120
+  sceneNext: NoTime
   pepPepPepEnabled: 1
   car: {fileID: 1140543478}
   inTutorial: 0

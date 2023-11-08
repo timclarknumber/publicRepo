@@ -11,6 +11,7 @@ public class SceneScopeStats : MonoBehaviour
     public int money;
     public int pizzasInOvenNow = 0;
     public float timer;
+    public string sceneNext;
     public bool pepPepPepEnabled = false;
     public GameObject car;
     [SerializeField] private bool inTutorial = false;
@@ -21,8 +22,8 @@ public class SceneScopeStats : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            Telemetry.writeToFile("Total Money: $" + money.ToString());
-            SceneSwapper.MoveToNextScene();
+            Telemetry.levelMoneyTotal(money);
+            SceneSwapper.MoveToNextScene(sceneNext);
         }
 
         if (readyPizzas > 2)

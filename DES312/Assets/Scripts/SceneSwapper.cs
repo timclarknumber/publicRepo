@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class SceneSwapper : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static void MoveToNextScene()
+    public static void MoveToNextScene(string nextScene)
     {
-        Telemetry.writeToFile("Average of all Delivery Times: " + Telemetry.averageOfAll(Telemetry.singleton.deliveries).ToString());
-        Telemetry.writeToFile("Average of all Pizza Preparing Times: " + Telemetry.averageOfAll(Telemetry.singleton.pizzasMadeTotal).ToString());
-        Telemetry.writeToFile("Average of all Highway Rides: " + Telemetry.averageOfAll(Telemetry.singleton.highwayRides).ToString());
-        SceneManager.LoadScene("NoTime");
+        if (nextScene == null || nextScene == "")
+        {
+            SceneManager.LoadScene("NoTime");
+        } else
+        {
+            SceneManager.LoadScene(nextScene);
+        }
         //IMPORTANT: if you are looking for the money telemetry function call, check sceneScopeStats
     }
     public static void ExitTutorial()
