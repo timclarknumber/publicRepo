@@ -25,8 +25,18 @@ public class Telemetry : MonoBehaviour
     public List<float> highwayRides = new List<float>();
     void Awake()
     {
-        singleton = this; //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
+        if (singleton != null && singleton != this) //method from https://discussions.unity.com/t/read-singleton-across-scenes/246042
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        singleton = this;
+        DontDestroyOnLoad(gameObject);
+         //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
         deleteTelemetry(); //get rid of the previous telemetry txt.
+
+        DontDestroyOnLoad(this.gameObject);
         //Important, because of this, save telemetry txt in between sessions or data is lost.
     }
 
@@ -54,9 +64,7 @@ public class Telemetry : MonoBehaviour
         if (currentlyInTutorial)
         {
             timeInTutorial += Time.deltaTime;
-        }
-
-        Debug.Log(timeInTutorial);
+        } 
         //Debug.Log("Telemetry player x is:" + playerXMeasured.ToString());
     }
 
@@ -167,7 +175,7 @@ public class Telemetry : MonoBehaviour
 
     public static void printAllLevelMoneyTotals()
     {
-        for (int i = 0; i < singleton.levelMoneyTotals.Count + 1; i++)
+        for (int i = 0; i < singleton.levelMoneyTotals.Count; i++)
         {
             string message = "Level " + i.ToString() + " money was: " + singleton.levelMoneyTotals[i].ToString();
             Telemetry.writeToFile(message);

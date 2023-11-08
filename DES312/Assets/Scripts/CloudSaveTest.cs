@@ -14,8 +14,8 @@ public static class CloudSaveTest
     {
         await UnityServices.InitializeAsync();
         //await AuthenticationService.Instance.SignInAnonymouslyAsync(); //anonymous method
-        //await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync("exampleUsername", "examplePassword1!"); //username password method signup
-        await AuthenticationService.Instance.SignInWithUsernamePasswordAsync("exampleUsername", "examplePassword1!"); //uesrname password method sign in;
+        //await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync("exampleUsername2", "examplePassword2!"); //username password method signup
+        await AuthenticationService.Instance.SignInWithUsernamePasswordAsync("exampleUsername2", "examplePassword2!"); //uesrname password method sign in;
 
         ListPlayerFiles();
     }

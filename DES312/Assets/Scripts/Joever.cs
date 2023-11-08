@@ -5,7 +5,7 @@ using UnityEngine;
 public class Joever : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         Telemetry.writeToFile("Average of all Delivery Times: " + Telemetry.averageOfAll(Telemetry.singleton.deliveries).ToString());
         Telemetry.writeToFile("Average of all Pizza Preparing Times: " + Telemetry.averageOfAll(Telemetry.singleton.pizzasMadeTotal).ToString());
