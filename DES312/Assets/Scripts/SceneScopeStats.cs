@@ -11,6 +11,7 @@ public class SceneScopeStats : MonoBehaviour
     public int money;
     public int pizzasInOvenNow = 0;
     public float timer;
+    public bool pepPepPepEnabled = false;
     public GameObject car;
     [SerializeField] private bool inTutorial = false;
     [SerializeField] private TMP_Text wasted;
@@ -27,16 +28,21 @@ public class SceneScopeStats : MonoBehaviour
         if (readyPizzas > 2)
         {
             readyPizzas--;
-            money -= 10;
-            if (wasted != null && textParent != null)
-            {
-                Instantiate(wasted, textParent.transform);
-            }
+            wasteOfPizza();
         }
         if (money > 50 && inTutorial)
         {
             Telemetry.WriteTutorialTime();
             SceneSwapper.ExitTutorial();
+        }
+    }
+
+    public void wasteOfPizza()
+    {
+        money -= 10;
+        if (wasted != null && textParent != null)
+        {
+            Instantiate(wasted, textParent.transform);
         }
     }
 }
