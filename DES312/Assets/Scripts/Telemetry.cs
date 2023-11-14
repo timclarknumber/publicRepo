@@ -33,10 +33,9 @@ public class Telemetry : MonoBehaviour
 
         singleton = this;
         DontDestroyOnLoad(gameObject);
-         //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
-        deleteTelemetry(); //get rid of the previous telemetry txt.
+        //weird thing i stole from a class I took a year and a half ago, i kinda forgot what singletons do tbh
+        //it is my code tho
 
-        DontDestroyOnLoad(this.gameObject);
         //Important, because of this, save telemetry txt in between sessions or data is lost.
     }
 
@@ -171,6 +170,7 @@ public class Telemetry : MonoBehaviour
     public static void levelMoneyTotal(float moneyToAdd)
     {
         singleton.levelMoneyTotals.Add(moneyToAdd);
+        Debug.Log("Added money to total!");
     }
 
     public static void printAllLevelMoneyTotals()
@@ -179,6 +179,7 @@ public class Telemetry : MonoBehaviour
         {
             string message = "Level " + i.ToString() + " money was: " + singleton.levelMoneyTotals[i].ToString();
             Telemetry.writeToFile(message);
+            Debug.Log(message);
         }
     }
 

@@ -16,8 +16,10 @@ public static class CloudSaveTest
         //await AuthenticationService.Instance.SignInAnonymouslyAsync(); //anonymous method
         //await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync("exampleUsername2", "examplePassword2!"); //username password method signup
         await AuthenticationService.Instance.SignInWithUsernamePasswordAsync("exampleUsername2", "examplePassword2!"); //uesrname password method sign in;
+        Telemetry.deleteTelemetry(); //get rid of the previous telemetry txt.
 
         ListPlayerFiles();
+
     }
 
     public async static void saveData()

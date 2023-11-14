@@ -13,6 +13,7 @@ public class SceneSwapper : MonoBehaviour
             SceneManager.LoadScene("NoTime");
         } else
         {
+            Telemetry.writeToFile("Scene Swap");
             SceneManager.LoadScene(nextScene);
         }
         //IMPORTANT: if you are looking for the money telemetry function call, check sceneScopeStats

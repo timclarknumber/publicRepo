@@ -31,7 +31,7 @@ public class SceneScopeStats : MonoBehaviour
             readyPizzas--;
             wasteOfPizza();
         }
-        if (money > 50 && inTutorial)
+        if (money > 40 && inTutorial)
         {
             Telemetry.WriteTutorialTime();
             SceneSwapper.ExitTutorial();

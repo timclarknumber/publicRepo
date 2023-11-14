@@ -32,5 +32,9 @@ public class IDInput : MonoBehaviour
         }
     }
 
+    public void openPolicy()
+    {
+        Application.OpenURL("https://unity.com/legal/game-player-and-app-user-privacy-policy");
+    }
     
 }
