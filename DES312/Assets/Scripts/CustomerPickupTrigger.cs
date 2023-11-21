@@ -8,7 +8,10 @@ public class CustomerPickupTrigger : MonoBehaviour
     [SerializeField] private SceneScopeStats statHolder;
     [SerializeField] private CustomerMove moveScript;
     [SerializeField] private GameObject car;
+    [SerializeField] private Transform customerBox;
     [SerializeField] private int maxDemand = 1;
+    [SerializeField] private float customerPatience = 25;
+    [SerializeField] private float customerPatienceReset = 15;
     public int neededPizzas;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +21,28 @@ public class CustomerPickupTrigger : MonoBehaviour
             car = statHolder.car;
         }
     }
+    void Update()
+    {
+        if (customerPatience <= customerPatienceReset)
+        {
+            customerBox.localScale = new Vector3(customerPatience / customerPatienceReset, 1, 1);
+        } else
+        {
+            customerBox.localScale = new Vector3(1, 1, 1);
+        }
+        customerPatience -= Time.deltaTime;
+        if (customerPatience <= 0)
+        {
+            customerPatience = customerPatienceReset;
+            moveScript.Move();
+            statHolder.wasteOfPizza();
+        }
+    }
 
     private void OnTriggerEnter(Collider car)
     {
         DeliverPizza();
+        customerPatience = customerPatienceReset;
         if (neededPizzas <= 0)
         {
             moveScript.Move();
