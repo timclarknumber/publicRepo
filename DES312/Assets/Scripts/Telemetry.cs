@@ -21,8 +21,11 @@ public class Telemetry : MonoBehaviour
     private float timeInTutorial = 0;
     public List<float> levelMoneyTotals = new List<float>();
     public List<float> deliveries = new List<float>();
+    public List<float> deliveriesIncludingOutliers = new List<float>();
     public List<float> pizzasMadeTotal = new List<float>();
+    public List<float> pizzasMadeTotalIncludingOutliers = new List<float>();
     public List<float> highwayRides = new List<float>();
+    public List<float> highwayRidesIncludingOutliers = new List<float>();
     void Awake()
     {
         if (singleton != null && singleton != this) //method from https://discussions.unity.com/t/read-singleton-across-scenes/246042
@@ -119,9 +122,18 @@ public class Telemetry : MonoBehaviour
         {
             //spooky singleton magic
             singleton.deliverySpeedTestOngoing = false;
-            singleton.deliveries.Add(singleton.deliverySpeed);
-            string message = "Delivery Time: " + singleton.deliverySpeed.ToString();
-            Telemetry.writeToFile(message);
+            if (singleton.deliverySpeed <= 20)
+            {
+                singleton.deliveries.Add(singleton.deliverySpeed);
+                singleton.deliveriesIncludingOutliers.Add(singleton.deliverySpeed);
+                string message = "Delivery Time: " + singleton.deliverySpeed.ToString();
+                Telemetry.writeToFile(message);
+            } else
+            {
+                singleton.deliveriesIncludingOutliers.Add(singleton.deliverySpeed);
+                string message = "Delivery Time Outlier: " + singleton.deliverySpeed.ToString();
+                Telemetry.writeToFile(message);
+            }
         }
     }
     public static void beginPizzaPrepareTest()
@@ -139,9 +151,18 @@ public class Telemetry : MonoBehaviour
         {
             //spooky singleton magic
             singleton.pizzaPrepareTestOngoing = false;
-            singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
-            string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
-            Telemetry.writeToFile(message);
+            if (singleton.pizzaPrepareSpeed <= 10)
+            {
+                singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
+                singleton.pizzasMadeTotalIncludingOutliers.Add(singleton.pizzaPrepareSpeed);
+                string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
+                Telemetry.writeToFile(message);
+            } else
+            {
+                singleton.pizzasMadeTotalIncludingOutliers.Add(singleton.pizzaPrepareSpeed);
+                string message = "Pizza Prepare Time Outlier: " + singleton.pizzaPrepareSpeed.ToString();
+                Telemetry.writeToFile(message);
+            }
         }
     }
     public static void enterHighway()
@@ -158,12 +179,18 @@ public class Telemetry : MonoBehaviour
         {
             //spooky singleton magic
             singleton.highwayRideOngoing = false;
-            if (singleton.highwayRideTime > 0.7) //excluding times they hop on and then immediately back off
+            if (singleton.highwayRideTime > 0.7 && singleton.highwayRideTime <= 7) //excluding times they hop on and then immediately back off
             {
                 singleton.highwayRides.Add(singleton.highwayRideTime);
+                singleton.highwayRidesIncludingOutliers.Add(singleton.highwayRideTime);
+                string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
+                Telemetry.writeToFile(message);
+            } else
+            {
+                singleton.highwayRidesIncludingOutliers.Add(singleton.highwayRideTime);
+                string message = "Highway ride time outlier: " + singleton.highwayRideTime.ToString();
+                Telemetry.writeToFile(message);
             }
-            string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
-            Telemetry.writeToFile(message);
         }
     }
 
