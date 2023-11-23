@@ -11,10 +11,13 @@ public class Telemetry : MonoBehaviour
     public static Telemetry singleton;
     public static float playerXMeasured = 0;
     public static float playerYMeasured = 0;
+    private bool currentlyMoving = false;
     private bool deliverySpeedTestOngoing = false;
     private bool pizzaPrepareTestOngoing = false;
     private bool highwayRideOngoing = false;
     private bool currentlyInTutorial = false;
+    private float AFKTime = 0;
+    private float AFKLimit = 10;
     private float deliverySpeed = 0;
     private float pizzaPrepareSpeed = 0;
     private float highwayRideTime = 0;
@@ -51,19 +54,23 @@ public class Telemetry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deliverySpeedTestOngoing)
+        if (!currentlyMoving) //if the player is not moving...
+        {
+            AFKTime += Time.deltaTime; //the player is stood still.
+        }
+        if (deliverySpeedTestOngoing && AFKTime < AFKLimit)
         {
             deliverySpeed += Time.deltaTime;
         }
-        if (pizzaPrepareTestOngoing)
+        if (pizzaPrepareTestOngoing && AFKTime < AFKLimit)
         {
             pizzaPrepareSpeed += Time.deltaTime;
         }
-        if (highwayRideOngoing)
+        if (highwayRideOngoing && AFKTime < AFKLimit)
         {
             highwayRideTime += Time.deltaTime;
         }
-        if (currentlyInTutorial)
+        if (currentlyInTutorial) //we aren't checking for AFK time in the tutorial since they could be stopped to read text, which counts as doing something. This is the only time in the game this makes sense.
         {
             timeInTutorial += Time.deltaTime;
         } 
@@ -219,5 +226,14 @@ public class Telemetry : MonoBehaviour
         }
         average = average / listToBeAveraged.Count; 
         return average;
+    }
+
+    public static void carIsMoving(bool YN)
+    {
+        if (YN)
+        {
+            singleton.AFKTime = 0;
+        }
+        singleton.currentlyMoving = YN;
     }
 }
