@@ -23,7 +23,7 @@ public class CustomerPickupTrigger : MonoBehaviour
     }
     void Update()
     {
-        if (customerPatience <= customerPatienceReset)
+        /*if (customerPatience <= customerPatienceReset)
         {
             customerBox.localScale = new Vector3(customerPatience / customerPatienceReset, 1, 1);
         } else
@@ -36,7 +36,7 @@ public class CustomerPickupTrigger : MonoBehaviour
             customerPatience = customerPatienceReset;
             moveScript.Move();
             statHolder.wasteOfPizza();
-        }
+        }*/ //Customer patience code, uncomment in timer builds!!!!
     }
 
     private void OnTriggerEnter(Collider car)

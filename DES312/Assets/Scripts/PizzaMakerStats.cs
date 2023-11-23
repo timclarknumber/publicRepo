@@ -38,13 +38,13 @@ public class PizzaMakerStats : MonoBehaviour
     }
     public void Update()
     {
-        if (currentLerp <= lerpTime && (doughReady || sauceReady || cheeseReady))
+        /*if (currentLerp <= lerpTime && (doughReady || sauceReady || cheeseReady))
         {
             currentLerp += Time.deltaTime;
         } else if (currentLerp > lerpTime)
         {
             oldFood();
-        }
+        }*/ //Timer build code!!!!!!! uncomment for timer builds!!!!!
         if (!callForPep)
         {
             recipeText.text = "Dough > Sauce > Cheese > Bake";
