@@ -90,7 +90,7 @@ public class Telemetry : MonoBehaviour
         writer.WriteLine(Input);
         writer.Close();
         //UnityEditor.AssetDatabase.Refresh();
-        CloudSaveTest.saveData();
+        //CloudSaveTest.saveData();
     }
 
     public static void saveFile()
