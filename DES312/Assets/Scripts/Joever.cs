@@ -15,6 +15,8 @@ public class Joever : MonoBehaviour
         Telemetry.writeToFile("Average of all Highway Rides: " + Telemetry.averageOfAll(Telemetry.singleton.highwayRidesIncludingOutliers).ToString());
         Telemetry.printAllLevelMoneyTotals();
         Telemetry.WriteTutorialTime();
+
+        Telemetry.saveFile();
     }
 
 }

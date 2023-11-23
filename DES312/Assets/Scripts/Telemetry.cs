@@ -93,6 +93,11 @@ public class Telemetry : MonoBehaviour
         CloudSaveTest.saveData();
     }
 
+    public static void saveFile()
+    {
+        CloudSaveTest.saveData();
+    }
+
     public static void deleteTelemetry()
     { //method from: https://discussions.unity.com/t/how-to-delete-a-file-using-application-datapath/163771
         //UnityEditor.AssetDatabase.Refresh();
