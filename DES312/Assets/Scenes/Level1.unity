@@ -9171,8 +9171,8 @@ MonoBehaviour:
   car: {fileID: 0}
   customerBox: {fileID: 932309718}
   maxDemand: 3
-  customerPatience: 25
-  customerPatienceReset: 15
+  customerPatience: 30
+  customerPatienceReset: 30
   neededPizzas: 1
 --- !u!114 &1878305999
 MonoBehaviour:

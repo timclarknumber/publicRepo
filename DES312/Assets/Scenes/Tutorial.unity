@@ -5932,8 +5932,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelMoneyTotals: []
   deliveries: []
+  deliveriesIncludingOutliers: []
   pizzasMadeTotal: []
+  pizzasMadeTotalIncludingOutliers: []
   highwayRides: []
+  highwayRidesIncludingOutliers: []
 --- !u!4 &1305540932
 Transform:
   m_ObjectHideFlags: 0
@@ -8173,7 +8176,7 @@ MonoBehaviour:
   customerBox: {fileID: 101430360}
   maxDemand: 3
   customerPatience: 25
-  customerPatienceReset: 18
+  customerPatienceReset: 25
   neededPizzas: 1
 --- !u!114 &1878305999
 MonoBehaviour:

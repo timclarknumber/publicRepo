@@ -17,6 +17,12 @@ public class SceneScopeStats : MonoBehaviour
     [SerializeField] private bool inTutorial = false;
     [SerializeField] private TMP_Text wasted;
     [SerializeField] private GameObject textParent;
+
+    private void Start()
+    {
+        Telemetry.writeToFile("Start of a level.");
+        Telemetry.saveFile();
+    }
     void Update()
     {
         timer -= Time.deltaTime;

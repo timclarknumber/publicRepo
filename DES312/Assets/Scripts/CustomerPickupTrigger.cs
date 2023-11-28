@@ -10,8 +10,8 @@ public class CustomerPickupTrigger : MonoBehaviour
     [SerializeField] private GameObject car;
     [SerializeField] private Transform customerBox;
     [SerializeField] private int maxDemand = 1;
-    [SerializeField] private float customerPatience = 25;
-    [SerializeField] private float customerPatienceReset = 15;
+    [SerializeField] public float customerPatience = 25;
+    [SerializeField] public float customerPatienceReset = 15;
     public int neededPizzas;
     // Start is called before the first frame update
     void Start()
