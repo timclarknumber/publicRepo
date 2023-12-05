@@ -15,7 +15,7 @@ public class PizzaPickupTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider car)
+    private void OnTriggerStay(Collider car)
     {
         GivePizza();
     }
