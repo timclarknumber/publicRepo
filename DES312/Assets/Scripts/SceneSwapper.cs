@@ -14,12 +14,14 @@ public class SceneSwapper : MonoBehaviour
         } else
         {
             Telemetry.writeToFile("Scene Swap");
+            Telemetry.resetDelayTimer();
             SceneManager.LoadScene(nextScene);
         }
         //IMPORTANT: if you are looking for the money telemetry function call, check sceneScopeStats
     }
     public static void ExitTutorial()
     {
+        Telemetry.resetDelayTimer();
         SceneManager.LoadScene("Tutorial");
     }
 }

@@ -39,7 +39,7 @@ public class CustomerPickupTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider car)
+    private void OnTriggerStay(Collider car)
     {
         DeliverPizza();
         customerPatience = customerPatienceReset;

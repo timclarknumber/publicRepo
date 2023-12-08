@@ -6,6 +6,8 @@ using TMPro;
 
 public class TutorialUI : MonoBehaviour
 {
+
+    //This entire script is not actually used anywhere. It's from a tutorial level that would end up getting replaced.
     public Transform playerTransform;
     public TMP_Text firstToAppear;
     public TMP_Text secondToAppear;

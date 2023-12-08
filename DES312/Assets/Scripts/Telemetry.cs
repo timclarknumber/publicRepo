@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using Newtonsoft.Json.Converters;
 
 public class Telemetry : MonoBehaviour
-{    
+{
     //where the file being written to is
     //public static string path = Application.persistentDataPath + "/telemetry.csv";
     public static Telemetry singleton;
@@ -16,12 +15,15 @@ public class Telemetry : MonoBehaviour
     private bool pizzaPrepareTestOngoing = false;
     private bool highwayRideOngoing = false;
     private bool currentlyInTutorial = false;
+    private float levelStartDelay = 10;
     private float AFKTime = 0;
     private float AFKLimit = 10;
     private float deliverySpeed = 0;
     private float pizzaPrepareSpeed = 0;
     private float highwayRideTime = 0;
     private float timeInTutorial = 0;
+    private float multiInput = 0;
+    private float nonMultiInput = 0;
     public List<float> levelMoneyTotals = new List<float>();
     public List<float> deliveries = new List<float>();
     public List<float> deliveriesIncludingOutliers = new List<float>();
@@ -54,6 +56,8 @@ public class Telemetry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        levelStartDelay -= Time.deltaTime;
+        //Debug.Log(levelStartDelay);
         if (!currentlyMoving) //if the player is not moving...
         {
             AFKTime += Time.deltaTime; //the player is stood still.
@@ -73,11 +77,11 @@ public class Telemetry : MonoBehaviour
         if (currentlyInTutorial) //we aren't checking for AFK time in the tutorial since they could be stopped to read text, which counts as doing something. This is the only time in the game this makes sense.
         {
             timeInTutorial += Time.deltaTime;
-        } 
+        }
         //Debug.Log("Telemetry player x is:" + playerXMeasured.ToString());
     }
 
-    public static void writeToFile(string Input) 
+    public static void writeToFile(string Input)
     {
         if (Input == null)
         {
@@ -100,12 +104,12 @@ public class Telemetry : MonoBehaviour
 
     public static void deleteTelemetry()
     { //method from: https://discussions.unity.com/t/how-to-delete-a-file-using-application-datapath/163771
-        //UnityEditor.AssetDatabase.Refresh();
-        
+      //UnityEditor.AssetDatabase.Refresh();
+
         string path = Application.persistentDataPath + "/telemetry.csv";
         if (path != null)
         {
-            File.Delete (path);
+            File.Delete(path);
         }
         //UnityEditor.AssetDatabase.Refresh();
     }
@@ -139,19 +143,25 @@ public class Telemetry : MonoBehaviour
                 singleton.deliveries.Add(singleton.deliverySpeed);
                 singleton.deliveriesIncludingOutliers.Add(singleton.deliverySpeed);
                 string message = "Delivery Time: " + singleton.deliverySpeed.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             } else
             {
                 singleton.deliveriesIncludingOutliers.Add(singleton.deliverySpeed);
                 string message = "Delivery Time Outlier: " + singleton.deliverySpeed.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             }
         }
     }
     public static void beginPizzaPrepareTest()
     {
         if (!singleton.currentlyInTutorial)
-        { 
+        {
             singleton.pizzaPrepareSpeed = 0;
             singleton.pizzaPrepareTestOngoing = true;
         }
@@ -168,17 +178,23 @@ public class Telemetry : MonoBehaviour
                 singleton.pizzasMadeTotal.Add(singleton.pizzaPrepareSpeed);
                 singleton.pizzasMadeTotalIncludingOutliers.Add(singleton.pizzaPrepareSpeed);
                 string message = "Pizza Prepare Time: " + singleton.pizzaPrepareSpeed.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             } else
             {
                 singleton.pizzasMadeTotalIncludingOutliers.Add(singleton.pizzaPrepareSpeed);
                 string message = "Pizza Prepare Time Outlier: " + singleton.pizzaPrepareSpeed.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             }
         }
     }
     public static void enterHighway()
-    {       
+    {
         if (!singleton.currentlyInTutorial)
         {
             singleton.highwayRideTime = 0;
@@ -196,12 +212,18 @@ public class Telemetry : MonoBehaviour
                 singleton.highwayRides.Add(singleton.highwayRideTime);
                 singleton.highwayRidesIncludingOutliers.Add(singleton.highwayRideTime);
                 string message = "Highway ride time: " + singleton.highwayRideTime.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             } else
             {
                 singleton.highwayRidesIncludingOutliers.Add(singleton.highwayRideTime);
                 string message = "Highway ride time outlier: " + singleton.highwayRideTime.ToString();
-                Telemetry.writeToFile(message);
+                if (singleton.levelStartDelay < 0)
+                {
+                    Telemetry.writeToFile(message);
+                }
             }
         }
     }
@@ -229,7 +251,7 @@ public class Telemetry : MonoBehaviour
         {
             average += listToBeAveraged[i];
         }
-        average = average / listToBeAveraged.Count; 
+        average = average / listToBeAveraged.Count;
         return average;
     }
 
@@ -240,5 +262,33 @@ public class Telemetry : MonoBehaviour
             singleton.AFKTime = 0;
         }
         singleton.currentlyMoving = YN;
+    }
+
+    public static void multitaskCheck()
+    {
+        if (!singleton.currentlyInTutorial)
+        {
+            if (singleton.currentlyMoving)
+            {
+                singleton.multiInput++;
+            }
+            else
+            {
+                singleton.nonMultiInput++;
+            }
+        }
+    }
+
+    public static void printMultis()
+    {
+        string message1 = "Multitask Inputs: " + singleton.multiInput.ToString();
+        string message2 = "Non-multitask Inputs: " + singleton.nonMultiInput.ToString();
+        Telemetry.writeToFile(message1);
+        Telemetry.writeToFile(message2);
+    }
+
+    public static void resetDelayTimer()
+    {
+        singleton.levelStartDelay = 10;
     }
 }

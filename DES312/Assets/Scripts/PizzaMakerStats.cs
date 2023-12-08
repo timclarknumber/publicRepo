@@ -88,6 +88,7 @@ public class PizzaMakerStats : MonoBehaviour
         if (!doughReady)
         {
             Telemetry.beginPizzaPrepareTest();
+            Telemetry.multitaskCheck();
             doughReady = true;
             doughButton.image.color = invisible;
             currentLerp = 0;
@@ -97,6 +98,7 @@ public class PizzaMakerStats : MonoBehaviour
     {
         if (doughReady && !sauceReady)
         {
+            Telemetry.multitaskCheck();
             sauceReady = true;
             sauceButton.image.color = invisible;
             currentLerp = 0;
@@ -106,6 +108,7 @@ public class PizzaMakerStats : MonoBehaviour
     {
         if (doughReady && sauceReady && !cheeseReady)
         {
+            Telemetry.multitaskCheck();
             cheeseReady = true;
             cheeseButton.image.color = invisible;
             currentLerp = 0;
@@ -113,6 +116,7 @@ public class PizzaMakerStats : MonoBehaviour
     }
     public void readyPep()
     {
+        Telemetry.multitaskCheck();
         if (doughReady && sauceReady && cheeseReady && !pepReady)
         {
             pepReady = true;
@@ -134,6 +138,7 @@ public class PizzaMakerStats : MonoBehaviour
         {
             statHolder.wasteOfPizza();
         }
+        Telemetry.multitaskCheck();
         Telemetry.endPizzaPrepareTest();
         doughReady = false;
         sauceReady = false;
